@@ -6,12 +6,16 @@
     <link rel="stylesheet" type="text/css" href="main.css">
   </head>
   <body>
+    <div id="bottom">
+
+
     <div class="box">
-      <div id="randEnt"></div>
+
       <div id="token"></div>
 
 
     </div>
+  </div>
     <script type="text/javascript" src="script.js"></script>
   </body>
 </html>

@@ -1,9 +1,20 @@
 .box {
   position: absolute;
-  width: 800px;
-  height: 800px;
+  width: 760px;
+  height: 760px;
+  top: 40px;
+  left: 40px;
   margin: auto;
-  background-color: #99ffff;
+  background-image: url(/javascript/images/bg.png);
+  background-size: 40px 40px;
+}
+#bottom {
+  position: absolute;
+  width: 840px;
+  height: 840px;
+  margin: auto;
+  background-image: url(/javascript/images/mur.png);
+  background-size: 40px 40px;
 }
 #token {
   position: absolute;
@@ -12,14 +23,18 @@
   width: 40px;
   height: 40px;
   background-color: #ff4d4d;
+  z-index: 100;
 }
-#randEnt {
+.mur {
   position: absolute;
   top: 0px;
   left: 0px;
   width: 40px;
   height: 40px;
-  background-color: #aa4d4d;
+  background-image: url(/javascript/images/log.png);
+  background-size: 40px 40px;
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.5);
+  z-index: 10;
 }
 
 body {
