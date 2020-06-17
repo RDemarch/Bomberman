@@ -1,0 +1,29 @@
+.box {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  margin: auto;
+  background-color: #99ffff;
+}
+#token {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 40px;
+  height: 40px;
+  background-color: #ff4d4d;
+}
+#randEnt {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 40px;
+  height: 40px;
+  background-color: #aa4d4d;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color:  #aaff80;
+}
