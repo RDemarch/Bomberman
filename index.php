@@ -10,6 +10,13 @@
       <div id="box">
       </div>
     </div>
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="/javascript/js/entity.js"></script>
+    <script type="text/javascript" src="/javascript/js/wall.js"></script>
+    <script type="text/javascript" src="/javascript/js/player.js"></script>
+    <script type="text/javascript" src="/javascript/js/bomb.js"></script>
+    <script type="text/javascript" src="/javascript/js/fire.js"></script>
+    <script type="text/javascript" src="/javascript/js/ennemis.js"></script>
+    <script type="text/javascript" src="/javascript/js/gameover.js"></script>
+    <script type="text/javascript" src="/javascript/js/script.js"></script>
   </body>
 </html>
