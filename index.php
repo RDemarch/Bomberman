@@ -7,15 +7,10 @@
   </head>
   <body>
     <div id="bottom">
-
-
-    <div class="box">
-
-      <div id="token"></div>
-
-
+      <div id="box">
+        
+      </div>
     </div>
-  </div>
     <script type="text/javascript" src="script.js"></script>
   </body>
 </html>

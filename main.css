@@ -1,4 +1,4 @@
-.box {
+#box {
   position: absolute;
   width: 760px;
   height: 760px;
@@ -7,19 +7,16 @@
   margin: auto;
   background-image: url(/javascript/images/bg.png);
   background-size: 40px 40px;
+
 }
 #bottom {
   position: absolute;
   width: 840px;
   height: 840px;
   margin: auto;
-  background-image: url(/javascript/images/mur.png);
-  background-size: 40px 40px;
 }
 #token {
   position: absolute;
-  top: 0px;
-  left: 0px;
   width: 40px;
   height: 40px;
   background-color: #ff4d4d;
@@ -36,7 +33,34 @@
   box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.5);
   z-index: 10;
 }
-
+.border {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 40px;
+  height: 40px;
+  background-image: url(/javascript/images/mur.png);
+  background-size: 40px 40px;
+  z-index: 50;
+}
+.murCassable {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 40px;
+  height: 40px;
+  background-image: url(/javascript/images/cobblestone.png);
+  background-size: 40px 40px;
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+.bombe {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url(/javascript/images/tnt.png);
+  background-size: 40px 40px;
+}
 body {
   display: flex;
   justify-content: center;
