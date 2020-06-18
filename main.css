@@ -61,6 +61,30 @@
   background-image: url(/javascript/images/tnt.png);
   background-size: 40px 40px;
 }
+.feu {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url(/javascript/images/fire.png);
+  background-size: 40px 40px;
+}
+.gameOver {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 200;
+  text-align: center;
+  top: 0;
+  left: 0;
+}
+.gameOver h1{
+  margin: 0;
+}
 body {
   display: flex;
   justify-content: center;

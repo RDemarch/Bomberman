@@ -8,7 +8,6 @@
   <body>
     <div id="bottom">
       <div id="box">
-        
       </div>
     </div>
     <script type="text/javascript" src="script.js"></script>

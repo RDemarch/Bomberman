@@ -31,7 +31,13 @@ class Entity {
     this.element.remove();
   }
 }
-
+class GameOver extends Entity {
+  constructor() {
+    super(0, 0);
+    this.getElement().classList.add("gameOver");
+    this.getElement().innerHTML = "<h1>Game Over</h1><button type=\"button\" onclick=\"document.location.reload(true);\">Retry ?</button>";
+  }
+}
 class Wall extends Entity {
   constructor(x, y, breakable = true) {
     super(x, y);
@@ -43,15 +49,119 @@ class Wall extends Entity {
   }
 
 }
+
+class Fire extends Entity {
+  constructor(x, y) {
+    super(x, y);
+    this.getElement().classList.add("feu");
+    if (this.getX() == player.getX() && this.getY() == player.getY()) {
+      player.remove();
+      new GameOver();
+    }
+
+    var that = this;
+    setTimeout(function(){that.remove();}, 100);
+  }
+}
+
 class Bomb extends Entity {
   constructor(x, y, explCallback, power = 1){
     super(x, y)
     this.getElement().classList.add("bombe");
     this.power = power;
     this.explCallback = explCallback;
-    setTimeout(this.explode, 3000);
+    var that = this;
+    setTimeout(function(){that.explode();}, 3000);
   }
   explode = function(){
+    new Fire(this.getX(), this.getY());
+    for (var i = 1; i <= this.power; i++) {
+      var nx = this.getX() - i;
+      var ny = this.getY();
+      if (nx % 2 == 1 && ny % 2 == 1) break;
+      if (nx < 0) break;
+      if (ny < 0) break;
+      if (nx > size) break;
+      if (ny > size) break;
+      new Fire(nx, ny);
+
+      var found = false;
+      for (var o = 0; o < randomWalls.length; o++) {
+        if (nx == randomWalls[o].getX() && ny == randomWalls[o].getY()){
+          found = true;
+          randomWalls[o].remove();
+          randomWalls.splice(o, 1);
+          break;
+        }
+      }
+      if (found) break;
+    }
+    for (var i = 1; i <= this.power; i++) {
+      var nx = this.getX() + i;
+      var ny = this.getY();
+      if (nx % 2 == 1 && ny % 2 == 1) break;
+      if (nx < 0) break;
+      if (ny < 0) break;
+      if (nx > size) break;
+      if (ny > size) break;
+      new Fire(nx, ny);
+      var found = false;
+
+      for (var o = 0; o < randomWalls.length; o++) {
+        if (nx == randomWalls[o].getX() && ny == randomWalls[o].getY()){
+          found = true;
+          randomWalls[o].remove();
+          randomWalls.splice(o, 1);
+          break;
+        }
+      }
+      if (found) break;
+    }
+    for (var i = ; i <= this.power; i++) {
+      var nx = this.getX();
+      var ny = this.getY() - i;
+      if (nx % 2 == 1 && ny % 2 == 1) break;
+      if (nx < 0) break;
+      if (ny < 0) break;
+      if (nx > size) break;
+      if (ny > size) break;
+      new Fire(nx, ny);
+      var found = false;
+
+      for (var o = 0; o < randomWalls.length; o++) {
+        if (nx == randomWalls[o].getX() && ny == randomWalls[o].getY()){
+          found = true;
+          randomWalls[o].remove();
+          randomWalls.splice(o, 1);
+          break;
+        }
+      }
+      if (found) break;
+
+
+    }
+    for (var i = 1; i <= this.power; i++) {
+      var nx = this.getX();
+      var ny = this.getY() + i;
+      if (nx % 2 == 1 && ny % 2 == 1) break;
+      if (nx < 0) break;
+      if (ny < 0) break;
+      if (nx > size) break;
+      if (ny > size) break;
+      new Fire(nx, ny);
+      var found = false;
+
+      for (var o = 0; o < randomWalls.length; o++) {
+        if (nx == randomWalls[o].getX() && ny == randomWalls[o].getY()){
+          found = true;
+          randomWalls[o].remove();
+          randomWalls.splice(o, 1);
+          break;
+        }
+      }
+      if (found) break;
+
+    }
     this.remove();
     this.explCallback();
   }
@@ -61,15 +171,17 @@ class Player extends Entity {
   constructor(x, y){
     super(x, y);
     this.getElement().id = "token";
+    var that = this;
     document.onkeydown = function(event){
-      player.keyDown(event);
+      that.keyDown(event);
     };
     this.maxBomb = 1, this.placedBomb = 0;
 
   }
-  dropBomb = function(x, y){
-    if (this.maxBomb == this.placedBomb) return;
-      new Bomb(x, y, function(){this.placedBomb--;});
+  dropBomb = function(){
+    if (this.maxBomb >= this.placedBomb) return;
+    var that = this;
+      new Bomb(this.getX(), this.getY(), function(){that.placedBomb--;});
       this.placedBomb++;
   }
   keyDown = function(event) {
@@ -98,7 +210,8 @@ class Player extends Entity {
         break;
 
       case 32:
-        player.dropBomb(nx, ny);
+        player.dropBomb();
+
       default:
       return;
     }
