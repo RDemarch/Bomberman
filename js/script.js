@@ -1,6 +1,12 @@
 var player = new Player(0, 0);
+var gameover = false;
+gameOver = function(){
+  if(gameover) return;
+  gameover = true;
+  player.remove();
+  new GameOver();
 
-
+}
 for (var wx = 1; wx < size; wx++) {
   for (var wy = 1; wy < size; wy++) {
     if (wx % 2 == 1 && wy % 2 == 1) {
@@ -76,4 +82,32 @@ while (compteur < 150) {
 
   compteur++
 
+}
+
+var enemies = [];
+var count = 0;
+while(count < 5)
+{
+  var rx = Math.round(Math.random() * (size - 5)) + 5;
+  var ry = Math.round(Math.random() * (size - 5)) + 5;
+
+	var found = false;
+	for (var i = 0; i < randomWalls.length; i++)
+		if (rx == randomWalls[i].getX() && ry == randomWalls[i].getY())
+		{
+			found = true;
+			break;
+		}
+	if(found) continue;
+	var found = false;
+	for (var i = 0; i < enemies.length; i++)
+		if (rx == enemies[i].getX() && ry == enemies[i].getY())
+		{
+			found = true;
+			break;
+		}
+	if(found) continue;
+
+	enemies.push(new Enemy(rx, ry));
+  count++;
 }

@@ -3,9 +3,14 @@ class Fire extends Entity {
     super(x, y);
     this.getElement().classList.add("feu");
     if (this.getX() == player.getX() && this.getY() == player.getY()) {
-      player.remove();
-      new GameOver();
+      gameOver();
     }
+    for (var i = 0; i < enemies.length; i++)
+      if (x == enemies[i].getX() && y == enemies[i].getY())
+      {
+        enemies[i].die();
+        enemies.splice(i, 1);
+      }
 
     var that = this;
     setTimeout(function(){that.remove();}, 100);

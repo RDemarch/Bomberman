@@ -1,5 +1,5 @@
 class Bomb extends Entity {
-  constructor(x, y, explCallback, power = 1){
+  constructor(x, y, explCallback, power = 3){
     super(x, y)
     this.getElement().classList.add("bombe");
     this.power = power;

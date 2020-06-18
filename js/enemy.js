@@ -3,6 +3,7 @@ class Enemy extends Entity
 	constructor(x, y)
 	{
 		super(x, y);
+		this.getElement().classList.add("enemies");
 		this.launchMove();
 		this.dead = false;
 	}
@@ -14,14 +15,15 @@ class Enemy extends Entity
 	}
 	randomMove = function()
 	{
+		if(this.dead) return;
 		var fail = 0;
 		while (fail < 10)
 		{
 			fail++;
-			
+
 			var nx = this.getX();
 			var ny = this.getY();
-			
+
 			switch (Math.floor(Math.random() * 4))
 			{
 				case 0:
@@ -39,7 +41,7 @@ class Enemy extends Entity
 				default:
 				continue;
 			}
-			
+
 			var found = false;
 			for (var i = 0; i < randomWalls.length; i++)
 				if (nx == randomWalls[i].getX() && ny == randomWalls[i].getY())
@@ -48,7 +50,7 @@ class Enemy extends Entity
 					break;
 				}
 			if(found) continue;
-			
+
 			var found = false;
 			for (var i = 0; i < enemies.length; i++)
 				if (nx == enemies[i].getX() && ny == enemies[i].getY())
@@ -57,23 +59,24 @@ class Enemy extends Entity
 					break;
 				}
 			if(found) continue;
-			
-			if (nx == player.getX() && ny == player.getY())continue;
 
+			if (nx == player.getX() && ny == player.getY()) {
+				gameOver();
+			}
 
 			if (nx % 2 == 1 && ny % 2 == 1) continue;
-			
+
 			if (nx < 0) continue;
 			if (ny < 0) continue;
-			
+
 			if (nx > size) continue;
 			if (ny > size) continue;
-			
+
 			this.setX(nx);
-			this.setX(yx);
+			this.setY(ny);
 			break;
 		}
-		
+
 		this.launchMove();
 	}
 	die = function()
@@ -81,22 +84,4 @@ class Enemy extends Entity
 		this.remove();
 		this.dead = true;
 	}
-}
-
-var enemies = [];
-var count = 0;
-while(count < 5)
-{
-	//Tes condition rx ry
-	
-	var found = false;
-	for (var i = 0; i < randomWalls.length; i++)
-		if (rx == randomWalls[i].getX() && ry == randomWalls[i].getY())
-		{
-			found = true;
-			break;
-		}
-	if(found) continue;
-	
-	enemies.push(new Enemy(rx, ry));
 }

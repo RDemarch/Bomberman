@@ -6,7 +6,7 @@ class Player extends Entity {
     document.onkeydown = function(event){
       that.keyDown(event);
     };
-    this.maxBomb = 1, this.placedBomb = 0;
+    this.maxBomb = 5, this.placedBomb = 0;
 
   }
   dropBomb = function(){
@@ -52,6 +52,12 @@ class Player extends Entity {
     for (var i = 0; i < randomWalls.length; i++)
     if (nx == randomWalls[i].getX() && ny == randomWalls[i].getY()) return;
 
+    for (var i = 0; i < enemies.length; i++)
+      if (nx == enemies[i].getX() && ny == enemies[i].getY())
+      {
+        gameOver();
+        return;
+      }
 
     if (nx % 2 == 1 && ny % 2 == 1) return;
     // On vérifie si les valeurs sont supérieures à 0 et inférieures à 18
