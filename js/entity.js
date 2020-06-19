@@ -1,6 +1,6 @@
 var size = 18;
 var box = document.getElementById("box");
-var randomWalls = [];
+
 
 class Entity {
   constructor(x, y) {

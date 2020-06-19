@@ -17,6 +17,7 @@
     <script type="text/javascript" src="/javascript/js/fire.js"></script>
     <script type="text/javascript" src="/javascript/js/enemy.js"></script>
     <script type="text/javascript" src="/javascript/js/gameover.js"></script>
+    <script type="text/javascript" src="/javascript/js/victory.js"></script>
     <script type="text/javascript" src="/javascript/js/script.js"></script>
   </body>
 </html>

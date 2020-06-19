@@ -89,8 +89,26 @@
   top: 0;
   left: 0;
 }
+.victory {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 51, 133, 0.3);
+  z-index: 200;
+  text-align: center;
+  top: 0;
+  left: 0;
+}
 .gameOver h1{
   margin: 0;
+}
+.victory h1{
+  margin: 0;
+  color: rgb(255, 255, 102);
 }
 body {
   display: flex;

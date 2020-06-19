@@ -7,5 +7,4 @@ class Wall extends Entity {
   isBreakable = function(){
     return this.breakable;
   }
-
 }

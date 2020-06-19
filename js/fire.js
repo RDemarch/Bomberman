@@ -10,6 +10,9 @@ class Fire extends Entity {
       {
         enemies[i].die();
         enemies.splice(i, 1);
+        if (enemies.length == 0) {
+          victoryF();
+        }
       }
 
     var that = this;
