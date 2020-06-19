@@ -1,10 +1,10 @@
 const size = 18;
 const box = document.getElementById("box");
-var player = new Player(0, 0);
-var gameover = false;
-var victory = false;
-var walls = [];
-
+let player = new Player(0, 0);
+let gameover = false;
+let victory = false;
+let walls = [];
+let score = 0;
 
 gameOver = function(){
   if(gameover) return;
@@ -20,20 +20,20 @@ victoryF = function(){
   new Victory();
 }
 
-for (var wx = 1; wx < size; wx++) {
-  for (var wy = 1; wy < size; wy++) {
+for (let wx = 1; wx < size; wx++) {
+  for (let wy = 1; wy < size; wy++) {
     if (wx % 2 == 1 && wy % 2 == 1) {
       walls.push(new Wall(wx, wy, false));
     }
   }
 }
 
-var border = document.getElementById('bottom');
-var borderSize = size + 2;
+let border = document.getElementById('bottom');
+let borderSize = size + 2;
 
-for (var i = 0; i <= borderSize; i++) {
-  var element = document.createElement("div");
-  var style = element.style;
+for (let i = 0; i <= borderSize; i++) {
+  let element = document.createElement("div");
+  let style = element.style;
   style.left = String(i * 40) + 'px';
   element.classList.add('border');
   border.appendChild(element);
@@ -45,9 +45,9 @@ for (var i = 0; i <= borderSize; i++) {
   element.classList.add('border');
   border.appendChild(element);
 }
-for (var i = 1; i < borderSize; i++) {
-  var element = document.createElement("div");
-  var style = element.style;
+for (let i = 1; i < borderSize; i++) {
+  let element = document.createElement("div");
+  let style = element.style;
   style.top = String(i * 40) + 'px';
   element.classList.add('border');
   border.appendChild(element);
@@ -61,27 +61,27 @@ for (var i = 1; i < borderSize; i++) {
 }
 
 
-var compteur = 1;
+let compteur = 1;
 
 while (compteur < 150) {
-  var rx = Math.round(Math.random() * size);
-  var ry = Math.round(Math.random() * size);
+  let rx = Math.round(Math.random() * size);
+  let ry = Math.round(Math.random() * size);
 
     if (rx == 0 && ry == 0) continue;
-    else if (rx == 1 && ry == 0)  r = 0;
-    else if (rx == 0 && ry == 1)  r = 0;
-    else if (rx == size && ry == 0)  r = 0;
-    else if (rx == (size - 1) && ry == 0)  r = 0;
-    else if (rx == size && ry == 1)  r = 0;
-    else if (rx == 0 && ry == size )  r = 0;
-    else if (rx == 1 && ry == size )  r = 0;
-    else if (rx == 0 && ry == (size - 1) )  r = 0;
-    else if (rx == size && ry == size) r = 0;
-    else if (rx == (size - 1) && ry == size) r = 0;
-    else if (rx == size && ry == (size - 1)) r = 0;
+    else if (rx == 1 && ry == 0)  continue;
+    else if (rx == 0 && ry == 1)  continue;
+    else if (rx == size && ry == 0)  continue;
+    else if (rx == (size - 1) && ry == 0)  continue;
+    else if (rx == size && ry == 1)  continue;
+    else if (rx == 0 && ry == size )  continue;
+    else if (rx == 1 && ry == size )  continue;
+    else if (rx == 0 && ry == (size - 1) )  continue;
+    else if (rx == size && ry == size) continue;
+    else if (rx == (size - 1) && ry == size) continue;
+    else if (rx == size && ry == (size - 1)) continue;
 
-  var found = false;
-  for (var i = 0; i < walls.length; i++) {
+  let found = false;
+  for (let i = 0; i < walls.length; i++) {
     if (rx == walls[i].getX() && ry == walls[i].getY()){
       found = true;
       break;
@@ -95,15 +95,15 @@ while (compteur < 150) {
 
 }
 
-var enemies = [];
-var count = 0;
+let enemies = [];
+let count = 0;
 while(count < 5)
 {
-	var rex = Math.round(Math.random() * (size - 5)) + 5;
-	var rey = Math.round(Math.random() * (size - 5)) + 5;
+	let rex = Math.round(Math.random() * (size - 5)) + 5;
+	let rey = Math.round(Math.random() * (size - 5)) + 5;
 
-	var found = false;
-	for (var o = 0; o < walls.length; o++){
+	let found = false;
+	for (let o = 0; o < walls.length; o++){
 	if (rex == walls[o].getX() && rey == walls[o].getY()){
 			found = true;
 			break;
@@ -112,7 +112,7 @@ while(count < 5)
 	if(found) continue;
 
 	found = false;
-	for (var p = 0; p < enemies.length; p++){
+	for (let p = 0; p < enemies.length; p++){
 	if (rex == enemies[p].getX() && rey == enemies[p].getY()){
 		found = true;
 		break;
@@ -123,3 +123,10 @@ while(count < 5)
 	enemies.push(new Enemy(rex, rey));
 	count++;
 }
+scoreAug = function(value) {
+  if (player.dead) return;
+  score += value
+  document.getElementById("score").innerText = score;
+}
+document.addEventListener('wallBreak', function (e) {if(e.getCause().getThrower()) scoreAug(10); }, false);
+document.addEventListener('enemyDie', function (e) {if(e.getCause().getThrower()) scoreAug(50); }, false);

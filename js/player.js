@@ -13,7 +13,7 @@ class Player extends Entity {
     if(this.dead) return;
     if (this.maxBomb <= this.placedBomb) return;
     var that = this;
-    new Bomb(this.getX(), this.getY(), function(){that.placedBomb--;});
+    new Bomb(this.getX(), this.getY(), this, function(){that.placedBomb--;});
     this.placedBomb++;
   }
   keyDown = function(event) {

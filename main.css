@@ -6,6 +6,7 @@
   left: 40px;
   margin: auto;
   background-image: url(/javascript/images/bg.png);
+  image-rendering: pixelated;
   background-size: 40px 40px;
 }
 #bottom {
@@ -28,6 +29,7 @@
   width: 40px;
   height: 40px;
   background-image: url(/javascript/images/log.png);
+  image-rendering: pixelated;
   background-size: 40px 40px;
   z-index: 15;
 }
@@ -38,6 +40,7 @@
   width: 40px;
   height: 40px;
   background-image: url(/javascript/images/mur.png);
+  image-rendering: pixelated;
   background-size: 40px 40px;
   z-index: 10;
 }
@@ -48,6 +51,7 @@
   width: 40px;
   height: 40px;
   background-image: url(/javascript/images/cobblestone.png);
+  image-rendering: pixelated;
   background-size: 40px 40px;
   z-index: 10;
 }
@@ -78,6 +82,7 @@
   width: 40px;
   height: 40px;
   background-image: url(/javascript/images/tnt.png);
+  image-rendering: pixelated;
   background-size: 40px 40px;
 }
 .feu {
@@ -85,6 +90,7 @@
   width: 40px;
   height: 40px;
   background-image: url(/javascript/images/fire.png);
+  image-rendering: pixelated;
   background-size: 40px 40px;
 }
 .enemies {
@@ -133,4 +139,10 @@ body {
   display: flex;
   justify-content: center;
   background-color:  #aaff80;
+}
+
+.displayScore {
+  position: fixed;
+  top: 500px;
+  left: 250px;
 }

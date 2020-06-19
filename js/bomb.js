@@ -1,14 +1,15 @@
 class Bomb extends Entity {
-  constructor(x, y, explCallback, power = 3){
+  constructor(x, y, thrower, explCallback, power = 3){
     super(x, y)
     this.getElement().classList.add("bombe");
+    this.thrower = thrower;
     this.power = power;
     this.explCallback = explCallback;
     var that = this;
     setTimeout(function(){that.explode();}, 3000);
   }
   explode = function(){
-    new Fire(this.getX(), this.getY());
+    new Fire(this.getX(), this.getY(), this.thrower);
     for (var i = 1; i <= this.power; i++) {
       var nx = this.getX() - i;
       var ny = this.getY();
@@ -44,6 +45,9 @@ class Bomb extends Entity {
           found = true;
           if(walls[o].isBreakable())
           {
+              let event = new WallBreakEvent(walls[o], this);
+              document.dispatchEvent(event);
+              if(event.defaultPrevented) return true;
               walls[o].remove();
               walls.splice(o, 1);
           }
@@ -52,8 +56,11 @@ class Bomb extends Entity {
            }
         }
       }
-      new Fire(nx, ny);
+      new Fire(nx, ny, this.thrower);
       if (found) return true;
       return false;
+  }
+  getThrower(){
+    return this.thrower;
   }
 }
