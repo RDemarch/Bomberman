@@ -67,18 +67,18 @@ while (compteur < 150) {
   var rx = Math.round(Math.random() * size);
   var ry = Math.round(Math.random() * size);
 
-  if (rx == 0 && ry == 0) continue;
-  if (rx == 1 && ry == 0) continue;
-  if (rx == 0 && ry == 1) continue;
-  if (rx == size && ry == 0) continue;
-  if (rx == (size - 1) && ry == 0) continue;
-  if (rx == size && ry == 1) continue;
-  if (rx == 0 && ry == size ) continue;
-  if (rx == 1 && ry == size ) continue;
-  if (rx == 0 && ry == (size - 1) ) continue;
-  if (rx == size && ry == size) continue;
-  if (rx == (size - 1) && ry == size) continue;
-  if (rx == size && ry == (size - 1)) continue;
+    if (rx == 0 && ry == 0) continue;
+    else if (rx == 1 && ry == 0)  r = 0;
+    else if (rx == 0 && ry == 1)  r = 0;
+    else if (rx == size && ry == 0)  r = 0;
+    else if (rx == (size - 1) && ry == 0)  r = 0;
+    else if (rx == size && ry == 1)  r = 0;
+    else if (rx == 0 && ry == size )  r = 0;
+    else if (rx == 1 && ry == size )  r = 0;
+    else if (rx == 0 && ry == (size - 1) )  r = 0;
+    else if (rx == size && ry == size) r = 0;
+    else if (rx == (size - 1) && ry == size) r = 0;
+    else if (rx == size && ry == (size - 1)) r = 0;
 
   var found = false;
   for (var i = 0; i < walls.length; i++) {
