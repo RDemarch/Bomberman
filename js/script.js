@@ -1,8 +1,9 @@
+const size = 18;
+const box = document.getElementById("box");
 var player = new Player(0, 0);
 var gameover = false;
 var victory = false;
-var normalWalls = [];
-var randomWalls = [];
+var walls = [];
 
 
 gameOver = function(){
@@ -22,7 +23,7 @@ victoryF = function(){
 for (var wx = 1; wx < size; wx++) {
   for (var wy = 1; wy < size; wy++) {
     if (wx % 2 == 1 && wy % 2 == 1) {
-      normalWalls.push(new Wall(wx, wy, false));
+      walls.push(new Wall(wx, wy, false));
     }
   }
 }
@@ -78,19 +79,17 @@ while (compteur < 150) {
   if (rx == size && ry == size) continue;
   if (rx == (size - 1) && ry == size) continue;
   if (rx == size && ry == (size - 1)) continue;
-  if (rx % 2 == 1 && ry % 2 == 1) continue;
 
   var found = false;
-
-  for (var i = 0; i < randomWalls.length; i++) {
-    if (rx == randomWalls[i].getX() && ry == randomWalls[i].getY()){
+  for (var i = 0; i < walls.length; i++) {
+    if (rx == walls[i].getX() && ry == walls[i].getY()){
       found = true;
       break;
     }
   }
   if (found) continue;
 
-  randomWalls.push(new Wall(rx, ry));
+  walls.push(new Wall(rx, ry));
 
   compteur++
 
@@ -100,42 +99,27 @@ var enemies = [];
 var count = 0;
 while(count < 5)
 {
-  var rex = Math.round(Math.random() * (size - 5)) + 5;
-  var rey = Math.round(Math.random() * (size - 5)) + 5;
+	var rex = Math.round(Math.random() * (size - 5)) + 5;
+	var rey = Math.round(Math.random() * (size - 5)) + 5;
 
 	var found = false;
-	for (var o = 0; o < randomWalls.length; o++){
-
-		if (rex == randomWalls[o].getX() && rey == randomWalls[o].getY()){
+	for (var o = 0; o < walls.length; o++){
+	if (rex == walls[o].getX() && rey == walls[o].getY()){
 			found = true;
-      console.log(randomWalls[o]);
 			break;
 		}
-  }
-  if(found) continue;
+	}
+	if(found) continue;
 
 	found = false;
 	for (var p = 0; p < enemies.length; p++){
-
-		if (rex == enemies[p].getX() && rey == enemies[p].getY()){
-			found = true;
-      console.log(enemies[p]);
-			break;
+	if (rex == enemies[p].getX() && rey == enemies[p].getY()){
+		found = true;
+		break;
 		}
-  }
-  if(found) continue;
-
-	found = false;
-	for (var u = 0; u < normalWalls.lenght; u++){
-
-		if (rex == normalWalls[u].getX() && rey == normalWalls[u].getY()){
-			found = true;
-      console.log(normalWalls[u]);
-			break;
-		}
-  }
-  if(found) continue;
+	}
+	if(found) continue;
 
 	enemies.push(new Enemy(rex, rey));
-  count++;
+	count++;
 }

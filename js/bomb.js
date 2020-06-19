@@ -12,91 +12,48 @@ class Bomb extends Entity {
     for (var i = 1; i <= this.power; i++) {
       var nx = this.getX() - i;
       var ny = this.getY();
-      if (nx % 2 == 1 && ny % 2 == 1) break;
-      if (nx < 0) break;
-      if (ny < 0) break;
-      if (nx > size) break;
-      if (ny > size) break;
-      new Fire(nx, ny);
-
-      var found = false;
-      for (var o = 0; o < randomWalls.length; o++) {
-        if (nx == randomWalls[o].getX() && ny == randomWalls[o].getY()){
-          found = true;
-          randomWalls[o].remove();
-          randomWalls.splice(o, 1);
-          break;
-        }
-      }
-      if (found) break;
+      if(this.explodeCheck(nx, ny)) break;
     }
     for (var i = 1; i <= this.power; i++) {
       var nx = this.getX() + i;
       var ny = this.getY();
-      if (nx % 2 == 1 && ny % 2 == 1) break;
-      if (nx < 0) break;
-      if (ny < 0) break;
-      if (nx > size) break;
-      if (ny > size) break;
-      new Fire(nx, ny);
-      var found = false;
-
-      for (var o = 0; o < randomWalls.length; o++) {
-        if (nx == randomWalls[o].getX() && ny == randomWalls[o].getY()){
-          found = true;
-          randomWalls[o].remove();
-          randomWalls.splice(o, 1);
-          break;
-        }
-      }
-      if (found) break;
+      if(this.explodeCheck(nx, ny)) break;
     }
     for (var i = 1; i <= this.power; i++) {
       var nx = this.getX();
       var ny = this.getY() - i;
-      if (nx % 2 == 1 && ny % 2 == 1) break;
-      if (nx < 0) break;
-      if (ny < 0) break;
-      if (nx > size) break;
-      if (ny > size) break;
-      new Fire(nx, ny);
-      var found = false;
-
-      for (var o = 0; o < randomWalls.length; o++) {
-        if (nx == randomWalls[o].getX() && ny == randomWalls[o].getY()){
-          found = true;
-          randomWalls[o].remove();
-          randomWalls.splice(o, 1);
-          break;
-        }
-      }
-      if (found) break;
-
-
+      if(this.explodeCheck(nx, ny)) break;
     }
     for (var i = 1; i <= this.power; i++) {
       var nx = this.getX();
       var ny = this.getY() + i;
-      if (nx % 2 == 1 && ny % 2 == 1) break;
-      if (nx < 0) break;
-      if (ny < 0) break;
-      if (nx > size) break;
-      if (ny > size) break;
-      new Fire(nx, ny);
-      var found = false;
-
-      for (var o = 0; o < randomWalls.length; o++) {
-        if (nx == randomWalls[o].getX() && ny == randomWalls[o].getY()){
-          found = true;
-          randomWalls[o].remove();
-          randomWalls.splice(o, 1);
-          break;
-        }
-      }
-      if (found) break;
-
+      if(this.explodeCheck(nx, ny)) break;
     }
     this.remove();
     this.explCallback();
+  }
+  explodeCheck = function(nx, ny)
+  {
+      if (nx < 0) return true;
+      if (ny < 0) return true;
+      if (nx > size) return true;
+      if (ny > size) return true;
+      var found = false;
+      for (var o = 0; o < walls.length; o++) {
+        if (nx == walls[o].getX() && ny == walls[o].getY()){
+          found = true;
+          if(walls[o].isBreakable())
+          {
+              walls[o].remove();
+              walls.splice(o, 1);
+          }
+          else {
+             return true;
+           }
+        }
+      }
+      new Fire(nx, ny);
+      if (found) return true;
+      return false;
   }
 }

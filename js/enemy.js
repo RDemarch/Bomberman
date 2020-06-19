@@ -43,8 +43,8 @@ class Enemy extends Entity
 			}
 
 			var found = false;
-			for (var i = 0; i < randomWalls.length; i++)
-				if (nx == randomWalls[i].getX() && ny == randomWalls[i].getY())
+			for (var i = 0; i < walls.length; i++)
+				if (nx == walls[i].getX() && ny == walls[i].getY())
 				{
 					found = true;
 					break;
@@ -63,8 +63,6 @@ class Enemy extends Entity
 			if (nx == player.getX() && ny == player.getY()) {
 				gameOver();
 			}
-
-			if (nx % 2 == 1 && ny % 2 == 1) continue;
 
 			if (nx < 0) continue;
 			if (ny < 0) continue;

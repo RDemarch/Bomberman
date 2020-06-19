@@ -1,7 +1,3 @@
-var size = 18;
-var box = document.getElementById("box");
-
-
 class Entity {
   constructor(x, y) {
     this.element = document.createElement("div");

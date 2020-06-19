@@ -50,8 +50,8 @@ class Player extends Entity {
       return;
     }
 
-    for (var i = 0; i < randomWalls.length; i++)
-    if (nx == randomWalls[i].getX() && ny == randomWalls[i].getY()) return;
+    for (var i = 0; i < walls.length; i++)
+    if (nx == walls[i].getX() && ny == walls[i].getY()) return;
 
     for (var i = 0; i < enemies.length; i++)
       if (nx == enemies[i].getX() && ny == enemies[i].getY())
@@ -59,8 +59,6 @@ class Player extends Entity {
         gameOver();
         return;
       }
-
-    if (nx % 2 == 1 && ny % 2 == 1) return;
     // On vérifie si les valeurs sont supérieures à 0 et inférieures à 18
     // Si elles sont inférieures à 0
     if (nx < 0) nx = 0;
