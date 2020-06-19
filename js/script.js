@@ -1,12 +1,15 @@
 var player = new Player(0, 0);
 var gameover = false;
+
 gameOver = function(){
   if(gameover) return;
   gameover = true;
-  player.remove();
+  player.die();
   new GameOver();
-
 }
+
+
+
 for (var wx = 1; wx < size; wx++) {
   for (var wy = 1; wy < size; wy++) {
     if (wx % 2 == 1 && wy % 2 == 1) {

@@ -10,14 +10,15 @@ class Player extends Entity {
 
   }
   dropBomb = function(){
+    if(this.dead) return;
     if (this.maxBomb <= this.placedBomb) return;
     var that = this;
-    console.log("Bomb1");
     new Bomb(this.getX(), this.getY(), function(){that.placedBomb--;});
-    console.log("Bomb2");
     this.placedBomb++;
   }
   keyDown = function(event) {
+    if(this.dead) return;
+    var that = this;
     var nx = this.getX();
     var ny = this.getY();
 
@@ -43,7 +44,7 @@ class Player extends Entity {
       break;
 
       case 32:
-      player.dropBomb();
+      that.dropBomb();
 
       default:
       return;
@@ -73,5 +74,10 @@ class Player extends Entity {
 
 
   }
+  die = function()
+	{
+		this.remove();
+		this.dead = true;
+	}
 
 }
