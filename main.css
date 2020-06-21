@@ -1,3 +1,7 @@
+:root {
+  font-size: 20px;
+}
+
 #box {
   position: absolute;
   width: 760px;
@@ -140,9 +144,31 @@ body {
   justify-content: center;
   background-color:  #aaff80;
 }
-
-.displayScore {
+.bombUp {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-size: 24px 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(/javascript/images/backpack.png);
+}
+.powerUp {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-size: 24px 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(/javascript/images/gunpowder.png);
+}
+.display {
   position: fixed;
-  top: 500px;
-  left: 250px;
+  top: 50px;
+  left: 150px;
+  display: flex;
+  width: 500px;
+  height: auto;
+  justify-content: flex-start;
+  flex-direction: column;
 }

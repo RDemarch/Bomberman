@@ -4,6 +4,8 @@ let player = new Player(0, 0);
 let gameover = false;
 let victory = false;
 let walls = [];
+let enumpowerups = [];
+let powerupList = [];
 let score = 0;
 
 gameOver = function(){
@@ -16,14 +18,18 @@ gameOver = function(){
 
 victoryF = function(){
   if(victory) return;
+  gameover = true;
   victory = true;
+  score += 500;
   new Victory();
 }
 
-for (let wx = 1; wx < size; wx++) {
-  for (let wy = 1; wy < size; wy++) {
+for (let wx = 0; wx <= size; wx++) {
+  walls.push([]);
+  for (let wy = 0; wy <= size; wy++) {
+    walls[wx].push(null);
     if (wx % 2 == 1 && wy % 2 == 1) {
-      walls.push(new Wall(wx, wy, false));
+      walls[wx][wy] = new Wall(wx, wy, false);
     }
   }
 }
@@ -80,16 +86,9 @@ while (compteur < 150) {
     else if (rx == (size - 1) && ry == size) continue;
     else if (rx == size && ry == (size - 1)) continue;
 
-  let found = false;
-  for (let i = 0; i < walls.length; i++) {
-    if (rx == walls[i].getX() && ry == walls[i].getY()){
-      found = true;
-      break;
-    }
-  }
-  if (found) continue;
+  if (walls[rx][ry] != null) continue;
 
-  walls.push(new Wall(rx, ry));
+  walls[rx][ry] = new Wall(rx, ry);
 
   compteur++
 
@@ -102,14 +101,7 @@ while(count < 5)
 	let rex = Math.round(Math.random() * (size - 5)) + 5;
 	let rey = Math.round(Math.random() * (size - 5)) + 5;
 
-	let found = false;
-	for (let o = 0; o < walls.length; o++){
-	if (rex == walls[o].getX() && rey == walls[o].getY()){
-			found = true;
-			break;
-		}
-	}
-	if(found) continue;
+ if (walls[rex][rey] != null) continue;
 
 	found = false;
 	for (let p = 0; p < enemies.length; p++){
@@ -130,3 +122,18 @@ scoreAug = function(value) {
 }
 document.addEventListener('wallBreak', function (e) {if(e.getCause().getThrower()) scoreAug(10); }, false);
 document.addEventListener('enemyDie', function (e) {if(e.getCause().getThrower()) scoreAug(50); }, false);
+
+enumpowerups.push(new EnumPowerUp("bombUp", function (player) {
+    if(player.maxBomb < 5) {
+      player.maxBomb++;
+      numBomb = player.maxBomb;
+      document.getElementById("bombs").innerText = numBomb;
+    }
+}));
+enumpowerups.push(new EnumPowerUp("powerUp", function (player) {
+    if(player.power <= (size / 3)) {
+      player.power++
+      numPower = player.power;
+      document.getElementById("power").innerText = numPower;
+  }
+}));

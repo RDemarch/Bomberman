@@ -6,14 +6,14 @@ class Player extends Entity {
     document.onkeydown = function(event){
       that.keyDown(event);
     };
-    this.maxBomb = 5, this.placedBomb = 0;
+    this.maxBomb = 1, this.placedBomb = 0, this.power = 1;
 
   }
   dropBomb = function(){
     if(this.dead) return;
     if (this.maxBomb <= this.placedBomb) return;
     var that = this;
-    new Bomb(this.getX(), this.getY(), this, function(){that.placedBomb--;});
+    walls[this.getX()][this.getY()] = new Bomb(this.getX(), this.getY(), this, function(){that.placedBomb--;}, this.power);
     this.placedBomb++;
   }
   keyDown = function(event) {
@@ -49,16 +49,6 @@ class Player extends Entity {
       default:
       return;
     }
-
-    for (var i = 0; i < walls.length; i++)
-    if (nx == walls[i].getX() && ny == walls[i].getY()) return;
-
-    for (var i = 0; i < enemies.length; i++)
-      if (nx == enemies[i].getX() && ny == enemies[i].getY())
-      {
-        gameOver();
-        return;
-      }
     // On vérifie si les valeurs sont supérieures à 0 et inférieures à 18
     // Si elles sont inférieures à 0
     if (nx < 0) nx = 0;
@@ -66,6 +56,23 @@ class Player extends Entity {
     // Si elles sont supérieures à 18
     if (nx > size) nx = size;
     if (ny > size) ny = size;
+    
+    if (walls[nx][ny] != null) return;
+
+    for (var i = 0; i < enemies.length; i++)
+      if (nx == enemies[i].getX() && ny == enemies[i].getY())
+      {
+        gameOver();
+        return;
+      }
+    for (var i = 0; i < powerupList.length; i++)
+      if (nx == powerupList[i].getX() && ny == powerupList[i].getY())
+      {
+        powerupList[i].walkOn(this);
+        powerupList[i].remove();
+        powerupList.splice(i, 1);
+      }
+
     // Et enfin on applique les modifications :
     player.setX(nx);
     player.setY(ny);

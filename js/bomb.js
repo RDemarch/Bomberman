@@ -1,7 +1,8 @@
 class Bomb extends Entity {
-  constructor(x, y, thrower, explCallback, power = 3){
+  constructor(x, y, thrower, explCallback, power){
     super(x, y)
     this.getElement().classList.add("bombe");
+    this.exploded = false;
     this.thrower = thrower;
     this.power = power;
     this.explCallback = explCallback;
@@ -9,6 +10,8 @@ class Bomb extends Entity {
     setTimeout(function(){that.explode();}, 3000);
   }
   explode = function(){
+    if (this.exploded) return;
+    this.exploded = true;
     new Fire(this.getX(), this.getY(), this.thrower);
     for (var i = 1; i <= this.power; i++) {
       var nx = this.getX() - i;
@@ -31,7 +34,9 @@ class Bomb extends Entity {
       if(this.explodeCheck(nx, ny)) break;
     }
     this.remove();
+    walls[this.getX()][this.getY()] = null;
     this.explCallback();
+
   }
   explodeCheck = function(nx, ny)
   {
@@ -39,26 +44,27 @@ class Bomb extends Entity {
       if (ny < 0) return true;
       if (nx > size) return true;
       if (ny > size) return true;
-      var found = false;
-      for (var o = 0; o < walls.length; o++) {
-        if (nx == walls[o].getX() && ny == walls[o].getY()){
-          found = true;
-          if(walls[o].isBreakable())
+      let found = false;
+      if (walls[nx][ny] instanceof Bomb) walls[nx][ny].explode();
+      if (walls[nx][ny] instanceof Wall) {
+          if(walls[nx][ny].isBreakable())
           {
-              let event = new WallBreakEvent(walls[o], this);
+              found = true;
+              let event = new WallBreakEvent(walls[nx][ny], this);
               document.dispatchEvent(event);
               if(event.defaultPrevented) return true;
-              walls[o].remove();
-              walls.splice(o, 1);
+              if (Math.floor(Math.random() * 100) >= 60) {
+                powerupList.push(new PowerUp(walls[nx][ny].getX(), walls[nx][ny].getY(), enumpowerups[Math.floor(Math.random() * enumpowerups.length)]));
+              }
+              walls[nx][ny].remove();
+              walls[nx][ny] = null;
           }
           else {
              return true;
            }
-        }
-      }
+         }
       new Fire(nx, ny, this.thrower);
-      if (found) return true;
-      return false;
+      return found;
   }
   getThrower(){
     return this.thrower;

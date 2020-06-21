@@ -41,15 +41,12 @@ class Enemy extends Entity
 				default:
 				continue;
 			}
+			if (nx < 0) continue;
+			if (ny < 0) continue;
 
-			var found = false;
-			for (var i = 0; i < walls.length; i++)
-				if (nx == walls[i].getX() && ny == walls[i].getY())
-				{
-					found = true;
-					break;
-				}
-			if(found) continue;
+			if (nx > size) continue;
+			if (ny > size) continue;
+			if (walls[nx][ny] != null) continue;
 
 			var found = false;
 			for (var i = 0; i < enemies.length; i++)
@@ -63,12 +60,6 @@ class Enemy extends Entity
 			if (nx == player.getX() && ny == player.getY()) {
 				gameOver();
 			}
-
-			if (nx < 0) continue;
-			if (ny < 0) continue;
-
-			if (nx > size) continue;
-			if (ny > size) continue;
 
 			this.setX(nx);
 			this.setY(ny);
