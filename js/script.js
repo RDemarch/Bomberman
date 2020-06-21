@@ -1,30 +1,31 @@
 const size = 18;
 const box = document.getElementById("box");
 let player = new Player(0, 0);
-let gameover = false;
-let victory = false;
+let gameEnded = false;
 let walls = [];
 let enumpowerups = [];
 let powerupList = [];
 let score = 0;
 
-gameOver = function(){
-  if(gameover) return;
-  gameover = true;
-  victory = true;
-  player.die();
-  console.log(score);
-  new GameOver(score);
+gameOver = function() {
+  setTimeout(function(){
+    if(gameEnded) return;
+    gameEnded = true;
+    player.die();
+    console.log(score);
+    new GameOver(score);
+  }, 100);
+}
+victoryF = function() {
+  setTimeout(function(){
+    if(gameEnded) return;
+    gameEnded = true;
+    score += 500;
+    console.log(score);
+    new Victory(score);
+  }, 100);
 }
 
-victoryF = function(){
-  if(victory) return;
-  gameover = true;
-  victory = true;
-  score += 500;
-  console.log(score);
-  new Victory(score);
-}
 
 for (let wx = 0; wx <= size; wx++) {
   walls.push([]);
