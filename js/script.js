@@ -13,7 +13,8 @@ gameOver = function(){
   gameover = true;
   victory = true;
   player.die();
-  new GameOver();
+  console.log(score);
+  new GameOver(score);
 }
 
 victoryF = function(){
@@ -21,7 +22,8 @@ victoryF = function(){
   gameover = true;
   victory = true;
   score += 500;
-  new Victory();
+  console.log(score);
+  new Victory(score);
 }
 
 for (let wx = 0; wx <= size; wx++) {
