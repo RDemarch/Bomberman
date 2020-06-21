@@ -85,7 +85,7 @@
   position: absolute;
   width: 40px;
   height: 40px;
-  background-image: url(/javascript/images/tnt.png);
+  background-image: url("/javascript/images/tnt.png");
   image-rendering: pixelated;
   background-size: 40px 40px;
 }
@@ -93,9 +93,11 @@
   position: absolute;
   width: 40px;
   height: 40px;
-  background-image: url(/javascript/images/fire.png);
+  background-size: 40px;
   image-rendering: pixelated;
-  background-size: 40px 40px;
+  background-image: url(/javascript/images/fire.png);
+  animation: 1.5s step-end infinite scrollFireSprite;
+  z-index: 1;
 }
 .enemies {
   position: absolute;
@@ -171,4 +173,39 @@ body {
   height: auto;
   justify-content: flex-start;
   flex-direction: column;
+}
+
+@keyframes scrollFireSprite {
+    0% { background-position-y: calc(-40px * 0); }
+    3.22580% { background-position-y: calc(-40px * 1); }
+    6.45161% { background-position-y: calc(-40px * 2); }
+    9.67741% { background-position-y: calc(-40px * 3); }
+    12.9032% { background-position-y: calc(-40px * 4); }
+    16.1290% { background-position-y: calc(-40px * 5); }
+    19.3548% { background-position-y: calc(-40px * 6); }
+    22.5806% { background-position-y: calc(-40px * 7); }
+    25.8064% { background-position-y: calc(-40px * 8); }
+    29.0322% { background-position-y: calc(-40px * 9); }
+    32.2580% { background-position-y: calc(-40px * 10); }
+    35.4838% { background-position-y: calc(-40px * 11); }
+    38.7096% { background-position-y: calc(-40px * 12); }
+    41.9354% { background-position-y: calc(-40px * 13); }
+    45.1612% { background-position-y: calc(-40px * 14); }
+    48.3870% { background-position-y: calc(-40px * 15); }
+    51.6129% { background-position-y: calc(-40px * 16); }
+    54.8387% { background-position-y: calc(-40px * 17); }
+    58.0645% { background-position-y: calc(-40px * 18); }
+    61.2903% { background-position-y: calc(-40px * 19); }
+    64.5161% { background-position-y: calc(-40px * 20); }
+    67.7419% { background-position-y: calc(-40px * 21); }
+    70.9677% { background-position-y: calc(-40px * 22); }
+    74.1935% { background-position-y: calc(-40px * 23); }
+    77.4193% { background-position-y: calc(-40px * 24); }
+    80.6451% { background-position-y: calc(-40px * 25); }
+    83.8709% { background-position-y: calc(-40px * 26); }
+    87.0967% { background-position-y: calc(-40px * 27); }
+    90.3225% { background-position-y: calc(-40px * 28); }
+    93.5483% { background-position-y: calc(-40px * 29); }
+    96.7741% { background-position-y: calc(-40px * 30); }
+    100% { background-position-y: calc(-40px * 31); }
 }
