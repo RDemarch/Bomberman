@@ -174,7 +174,6 @@ body {
   justify-content: flex-start;
   flex-direction: column;
 }
-
 @keyframes scrollFireSprite {
     0% { background-position-y: calc(-40px * 0); }
     3.22580% { background-position-y: calc(-40px * 1); }
