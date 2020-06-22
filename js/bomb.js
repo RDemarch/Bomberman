@@ -1,10 +1,11 @@
 class Bomb extends Entity {
-  constructor(x, y, thrower, explCallback, power){
+  constructor(x, y, thrower, explCallback, power, piercing){
     super(x, y)
     this.getElement().classList.add("bombe");
     this.exploded = false;
     this.thrower = thrower;
     this.power = power;
+    this.piercing = piercing;
     this.explCallback = explCallback;
     var that = this;
     setTimeout(function(){that.explode();}, 3000);
@@ -49,7 +50,8 @@ class Bomb extends Entity {
       if (walls[nx][ny] instanceof Wall) {
           if(walls[nx][ny].isBreakable())
           {
-              found = true;
+            if (this.piercing) {
+              found = false;
               let event = new WallBreakEvent(walls[nx][ny], this);
               document.dispatchEvent(event);
               if(event.defaultPrevented) return true;
@@ -58,11 +60,23 @@ class Bomb extends Entity {
               }
               walls[nx][ny].remove();
               walls[nx][ny] = null;
+            }
+            else {
+                found = true;
+                let event = new WallBreakEvent(walls[nx][ny], this);
+                document.dispatchEvent(event);
+                if(event.defaultPrevented) return true;
+                if (Math.floor(Math.random() * 100) >= 60) {
+                  powerupList.push(new PowerUp(walls[nx][ny].getX(), walls[nx][ny].getY(), enumpowerups[Math.floor(Math.random() * enumpowerups.length)]));
+                }
+                walls[nx][ny].remove();
+                walls[nx][ny] = null;
+              }
           }
           else {
              return true;
            }
-         }
+        }
       new Fire(nx, ny, this.thrower);
       return found;
   }

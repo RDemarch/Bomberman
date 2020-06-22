@@ -7,6 +7,11 @@ let enumpowerups = [];
 let powerupList = [];
 let score = 0;
 
+piercingF = function() {
+  player.piercing = true;
+  setTimeout(function(){player.piercing = false}, 5000);
+}
+
 gameOver = function() {
   setTimeout(function(){
     if(gameEnded) return;
@@ -127,16 +132,20 @@ document.addEventListener('wallBreak', function (e) {if(e.getCause().getThrower(
 document.addEventListener('enemyDie', function (e) {if(e.getCause().getThrower()) scoreAug(50); }, false);
 
 enumpowerups.push(new EnumPowerUp("bombUp", function (player) {
-    if(player.maxBomb < 5) {
+    if (player.maxBomb < 5) {
       player.maxBomb++;
       numBomb = player.maxBomb;
       document.getElementById("bombs").innerText = numBomb;
     }
 }));
+
 enumpowerups.push(new EnumPowerUp("powerUp", function (player) {
-    if(player.power <= (size / 3)) {
-      player.power++
+    if (player.power <= (size / 3)) {
+      player.power++;
       numPower = player.power;
       document.getElementById("power").innerText = numPower;
   }
 }));
+
+enumpowerups.push(new EnumPowerUp("piercingBomb", function(player){piercingF()}
+));

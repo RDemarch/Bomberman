@@ -6,14 +6,14 @@ class Player extends Entity {
     document.onkeydown = function(event){
       that.keyDown(event);
     };
-    this.maxBomb = 1, this.placedBomb = 0, this.power = 1;
+    this.maxBomb = 1, this.placedBomb = 0, this.power = 1, this.piercing = false;
 
   }
   dropBomb = function(){
     if(this.dead) return;
     if (this.maxBomb <= this.placedBomb) return;
     var that = this;
-    walls[this.getX()][this.getY()] = new Bomb(this.getX(), this.getY(), this, function(){that.placedBomb--;}, this.power);
+    walls[this.getX()][this.getY()] = new Bomb(this.getX(), this.getY(), this, function(){that.placedBomb--;}, this.power, this.piercing);
     this.placedBomb++;
   }
   keyDown = function(event) {
@@ -56,7 +56,7 @@ class Player extends Entity {
     // Si elles sont supérieures à 18
     if (nx > size) nx = size;
     if (ny > size) ny = size;
-    
+
     if (walls[nx][ny] != null) return;
 
     for (var i = 0; i < enemies.length; i++)
