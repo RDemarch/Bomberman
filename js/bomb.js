@@ -50,8 +50,7 @@ class Bomb extends Entity {
       if (walls[nx][ny] instanceof Wall) {
           if(walls[nx][ny].isBreakable())
           {
-            if (this.piercing) {
-              found = false;
+              found = !this.piercing;
               let event = new WallBreakEvent(walls[nx][ny], this);
               document.dispatchEvent(event);
               if(event.defaultPrevented) return true;
@@ -60,18 +59,6 @@ class Bomb extends Entity {
               }
               walls[nx][ny].remove();
               walls[nx][ny] = null;
-            }
-            else {
-                found = true;
-                let event = new WallBreakEvent(walls[nx][ny], this);
-                document.dispatchEvent(event);
-                if(event.defaultPrevented) return true;
-                if (Math.floor(Math.random() * 100) >= 60) {
-                  powerupList.push(new PowerUp(walls[nx][ny].getX(), walls[nx][ny].getY(), enumpowerups[Math.floor(Math.random() * enumpowerups.length)]));
-                }
-                walls[nx][ny].remove();
-                walls[nx][ny] = null;
-              }
           }
           else {
              return true;
