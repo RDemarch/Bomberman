@@ -30,7 +30,10 @@ victoryF = function() {
     new Victory(score);
   }, 100);
 }
+invincibiliteF = function() {
 
+  setTimeout(function(){}, 500);
+}
 
 for (let wx = 0; wx <= size; wx++) {
   walls.push([]);
@@ -148,4 +151,6 @@ enumpowerups.push(new EnumPowerUp("powerUp", function (player) {
 }));
 
 enumpowerups.push(new EnumPowerUp("piercingBomb", function(player){piercingF()}
+));
+enumpowerups.push(new EnumPowerUp("invincibilite", function(player){invincibiliteF()}
 ));

@@ -51,11 +51,11 @@ class Player extends Entity {
     }
     // On vérifie si les valeurs sont supérieures à 0 et inférieures à 18
     // Si elles sont inférieures à 0
-    if (nx < 0) nx = 0;
-    if (ny < 0) ny = 0;
+    if (nx < 0) return;
+    if (ny < 0) return;
     // Si elles sont supérieures à 18
-    if (nx > size) nx = size;
-    if (ny > size) ny = size;
+    if (nx > size) return;
+    if (ny > size) return;
 
     if (walls[nx][ny] != null) return;
 

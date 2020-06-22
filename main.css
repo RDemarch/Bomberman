@@ -185,6 +185,15 @@ body {
   background-repeat: no-repeat;
   background-image: url(/javascript/images/arrow.png);
 }
+.piercingBomb {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-size: 32px 32px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: black;
+}
 .display {
   position: fixed;
   top: 50px;

@@ -37,7 +37,6 @@ class Bomb extends Entity {
     this.remove();
     walls[this.getX()][this.getY()] = null;
     this.explCallback();
-
   }
   explodeCheck = function(nx, ny)
   {
@@ -49,7 +48,7 @@ class Bomb extends Entity {
       if (walls[nx][ny] instanceof Bomb) walls[nx][ny].explode();
       if (walls[nx][ny] instanceof Wall) {
           if(walls[nx][ny].isBreakable())
-          {
+            {
               found = !this.piercing;
               let event = new WallBreakEvent(walls[nx][ny], this);
               document.dispatchEvent(event);
