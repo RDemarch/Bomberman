@@ -30,10 +30,6 @@ victoryF = function() {
     new Victory(score);
   }, 100);
 }
-invincibiliteF = function() {
-
-  setTimeout(function(){}, 500);
-}
 
 for (let wx = 0; wx <= size; wx++) {
   walls.push([]);
@@ -133,6 +129,7 @@ scoreAug = function(value) {
 }
 document.addEventListener('wallBreak', function (e) {if(e.getCause().getThrower()) scoreAug(10); }, false);
 document.addEventListener('enemyDie', function (e) {if(e.getCause().getThrower()) scoreAug(50); }, false);
+document.addEventListener('powerUp', function (e) {if(e.getCause().getThrower()) scoreAug(25); }, false);
 
 enumpowerups.push(new EnumPowerUp("bombUp", function (player) {
     if (player.maxBomb < 5) {
@@ -152,5 +149,4 @@ enumpowerups.push(new EnumPowerUp("powerUp", function (player) {
 
 enumpowerups.push(new EnumPowerUp("piercingBomb", function(player){piercingF()}
 ));
-enumpowerups.push(new EnumPowerUp("invincibilite", function(player){invincibiliteF()}
-));
+enumpowerups.push(new EnumPowerUp("invincibility", function(){}));
