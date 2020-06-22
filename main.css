@@ -88,6 +88,18 @@
   background-image: url("/javascript/images/tnt.png");
   image-rendering: pixelated;
   background-size: 40px 40px;
+  z-index: 1;
+}
+.bombe::after {
+  position: absolute;
+  content: "";
+  width: 40px;
+  height: 40px;
+  image-rendering: pixelated;
+  background-size: 40px 40px;
+  animation-name: bombAnimation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }
 .feu {
   position: absolute;
@@ -207,4 +219,16 @@ body {
     93.5483% { background-position-y: calc(-40px * 29); }
     96.7741% { background-position-y: calc(-40px * 30); }
     100% { background-position-y: calc(-40px * 31); }
+}
+
+@keyframes bombAnimation {
+  from {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  50%{
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  to {
+    background-color: rgba(255, 255, 255, 0);
+  }
 }
