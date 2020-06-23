@@ -2,7 +2,8 @@ class Player extends Entity {
   constructor(x, y){
     super(x, y);
     this.getElement().id = "token";
-    var that = this;
+    let that = this;
+    this.time = Date.now();
     document.onkeydown = function(event){
       that.keyDown(event);
     };
@@ -18,14 +19,17 @@ class Player extends Entity {
   }
   keyDown = function(event) {
     if(this.dead) return;
-    var that = this;
-    var nx = this.getX();
-    var ny = this.getY();
+    let that = this;
+    let nx = this.getX();
+    let ny = this.getY();
 
     var event = event || window.event,
     keyCode = event.keyCode;
-
+    let instant = Date.now();
+    console.log(this.instant);
     // On détecte l'événement puis selon la fleche, on ajoute le nombres de pixels désiré (ici 3) aux valeurs globales de position, x et y.
+    if (instant >= this.time + 50) {
+      console.log(this.instant);
     switch (keyCode) {
       case 90:
       ny = ny - 1;
@@ -49,6 +53,8 @@ class Player extends Entity {
       default:
       return;
     }
+    this.time = Date.now();
+  }
     // On vérifie si les valeurs sont supérieures à 0 et inférieures à 18
     // Si elles sont inférieures à 0
     if (nx < 0) return;
@@ -80,8 +86,7 @@ class Player extends Entity {
     player.setX(nx);
     player.setY(ny);
 
-
-  }
+}
   die = function()
 	{
 		this.remove();
