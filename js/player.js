@@ -6,7 +6,7 @@ class Player extends Entity {
     document.onkeydown = function(event){
       that.keyDown(event);
     };
-    this.maxBomb = 1, this.placedBomb = 0, this.power = 1, this.piercing = false;
+    this.maxBomb = 1, this.placedBomb = 0, this.power = 1, this.piercing = false, this.vulnerable = true;
 
   }
   dropBomb = function(){
@@ -59,20 +59,23 @@ class Player extends Entity {
 
     if (walls[nx][ny] != null) return;
 
-    for (var i = 0; i < enemies.length; i++)
-      if (nx == enemies[i].getX() && ny == enemies[i].getY())
-      {
-        gameOver();
-        return;
+    for (var i = 0; i < enemies.length; i++) {
+      if (this.vulnerable) {
+        if (nx == enemies[i].getX() && ny == enemies[i].getY())
+        {
+          gameOver();
+          return;
+        }
       }
-    for (var i = 0; i < powerupList.length; i++)
+    }
+    for (var i = 0; i < powerupList.length; i++) {
       if (nx == powerupList[i].getX() && ny == powerupList[i].getY())
       {
         powerupList[i].walkOn(this);
         powerupList[i].remove();
         powerupList.splice(i, 1);
       }
-
+    }
     // Et enfin on applique les modifications :
     player.setX(nx);
     player.setY(ny);

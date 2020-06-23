@@ -5,7 +5,7 @@ class Enemy extends Entity
 		super(x, y);
 		this.getElement().classList.add("enemies");
 		this.launchMove();
-		this.dead = false;
+		this.dead = false, this.move = true;
 	}
 	launchMove = function()
 	{
@@ -24,22 +24,24 @@ class Enemy extends Entity
 			var nx = this.getX();
 			var ny = this.getY();
 
-			switch (Math.floor(Math.random() * 4))
-			{
-				case 0:
-				nx--;
-				break;
-				case 1:
-				nx++;
-				break;
-				case 2:
-				ny--;
-				break;
-				case 3:
-				ny++;
-				break;
-				default:
-				continue;
+			if (this.move) {
+				switch (Math.floor(Math.random() * 4))
+				{
+					case 0:
+					nx--;
+					break;
+					case 1:
+					nx++;
+					break;
+					case 2:
+					ny--;
+					break;
+					case 3:
+					ny++;
+					break;
+					default:
+					continue;
+				}
 			}
 			if (nx < 0) continue;
 			if (ny < 0) continue;
@@ -57,9 +59,11 @@ class Enemy extends Entity
 				}
 			if(found) continue;
 
-			if (nx == player.getX() && ny == player.getY()) {
-				gameOver();
-			}
+				if (player.vulnerable) {
+					if (nx == player.getX() && ny == player.getY()) {
+						gameOver();
+					}
+				}
 
 			this.setX(nx);
 			this.setY(ny);

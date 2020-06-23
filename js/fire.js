@@ -3,8 +3,10 @@ class Fire extends Entity {
     super(x, y);
     this.thrower = thrower;
     this.getElement().classList.add("feu");
-    if (this.getX() == player.getX() && this.getY() == player.getY()) {
-      gameOver();
+    if (player.vulnerable) {
+      if (this.getX() == player.getX() && this.getY() == player.getY()) {
+        gameOver();
+      }
     }
     for (var i = 0; i < enemies.length; i++)
       if (x == enemies[i].getX() && y == enemies[i].getY())

@@ -12,6 +12,22 @@ piercingF = function() {
   setTimeout(function(){player.piercing = false}, 5000);
 }
 
+invincibilityF = function() {
+  player.vulnerable = false;
+  setTimeout(function(){player.vulnerable = true}, 5000);
+}
+
+enenmiesFreezeF = function() {
+  for (var i = 0; i < enemies.length; i++){
+    enemies[i].move = false;
+  }
+  setTimeout(function(){
+    for (var i = 0; i < enemies.length; i++){
+      enemies[i].move = true;
+    }
+  }, 5000);
+}
+
 gameOver = function() {
   setTimeout(function(){
     if(gameEnded) return;
@@ -147,6 +163,6 @@ enumpowerups.push(new EnumPowerUp("powerUp", function (player) {
   }
 }));
 
-enumpowerups.push(new EnumPowerUp("piercingBomb", function(player){piercingF()}
-));
-enumpowerups.push(new EnumPowerUp("invincibility", function(){}));
+enumpowerups.push(new EnumPowerUp("piercingBomb", function(player){piercingF()}));
+enumpowerups.push(new EnumPowerUp("invincibility", function(){invincibilityF()}));
+enumpowerups.push(new EnumPowerUp("enemiesFreeze", function(){enenmiesFreezeF()}));

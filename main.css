@@ -46,7 +46,7 @@
   background-image: url(/javascript/images/stone_bricks.png);
   image-rendering: pixelated;
   background-size: 40px 40px;
-  z-index: 10;
+  z-index: 20;
 }
 .murCassable {
   position: absolute;
@@ -185,14 +185,23 @@ body {
   background-repeat: no-repeat;
   background-image: url(/javascript/images/arrow.png);
 }
-.invicibility {
+.invincibility {
   position: absolute;
   width: 40px;
   height: 40px;
   background-size: 32px 32px;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: black;
+  background-image: url(/javascript/images/diamond_chestplate.png);
+}
+.enemiesFreeze {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-size: 32px 32px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(/javascript/images/slime_ball.png);
 }
 .display {
   position: fixed;

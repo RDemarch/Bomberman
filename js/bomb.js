@@ -53,7 +53,7 @@ class Bomb extends Entity {
               let event = new WallBreakEvent(walls[nx][ny], this);
               document.dispatchEvent(event);
               if(event.defaultPrevented) return true;
-              if (Math.floor(Math.random() * 100) >= 60) {
+              if (Math.floor(Math.random() * 100) >= 0) {
                 powerupList.push(new PowerUp(walls[nx][ny].getX(), walls[nx][ny].getY(), enumpowerups[Math.floor(Math.random() * enumpowerups.length)]));
               }
               walls[nx][ny].remove();
