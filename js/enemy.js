@@ -49,7 +49,7 @@ class Enemy extends Entity
 			if (nx > size) continue;
 			if (ny > size) continue;
 			if (walls[nx][ny] != null) {
-	    if (!(walls[nx][ny] instanceof Fire)) return;
+	    if (!(walls[nx][ny] instanceof Fire)) continue;
 	    }
 
 			var found = false;
