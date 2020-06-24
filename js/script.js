@@ -28,6 +28,17 @@ enenmiesFreezeF = function() {
     }
   }, 5000);
 }
+randomPowerUp = function () {
+  let randomPu = Math.round(Math.random() * 100);
+  if (randomPu <= 30) return enumpowerups[0];
+  else if (randomPu <= 60) return enumpowerups[1];
+  else if (randomPu <= 80) return enumpowerups[2];
+  else if (randomPu <= 90) return enumpowerups[3];
+  else if (randomPu <= 100) return enumpowerups[4];
+  else {
+    return enumpowerups[1];
+  }
+}
 
 gameOver = function() {
   setTimeout(function(){

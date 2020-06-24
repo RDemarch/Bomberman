@@ -12,10 +12,11 @@ class EnumPowerUp {
     constructor(cssclass, execute) {
         this.cssclass = cssclass;
         this.exec = execute;
+
     };
     getClass = function () {
         return this.cssclass;
-    };
+    }
     execute = function (player) {
         this.exec(player);
     }
