@@ -32,31 +32,31 @@ class Player extends Entity {
       case 90:
       ny = ny - 1;
       if (this.getElement().classList.contains("up")) {
-        this.getElement().classList.replace("up", "up2")
+        this.getElement().classList.replace("up", "up2");
       }
       else if (this.getElement().classList.contains("bottom")) {
-        this.getElement().classList.replace("bottom", "up2")
+        this.getElement().classList.replace("bottom", "up2");
       }
       else if (this.getElement().classList.contains("bottom2")) {
-        this.getElement().classList.replace("bottom2", "up2")
+        this.getElement().classList.replace("bottom2", "up2");
       }
       else if (this.getElement().classList.contains("left")) {
-        this.getElement().classList.replace("left", "up2")
+        this.getElement().classList.replace("left", "up2");
       }
       else if (this.getElement().classList.contains("left2")) {
-        this.getElement().classList.replace("left2", "up2")
+        this.getElement().classList.replace("left2", "up2");
       }
       else if (this.getElement().classList.contains("right")) {
-        this.getElement().classList.replace("right", "up2")
+        this.getElement().classList.replace("right", "up2");
       }
       else if (this.getElement().classList.contains("right2")) {
-        this.getElement().classList.replace("right2", "up2")
+        this.getElement().classList.replace("right2", "up2");
       }
       else if (this.getElement().classList.contains("still")) {
-        this.getElement().classList.replace("still", "up2")
+        this.getElement().classList.replace("still", "up2");
       }
       else if(this.getElement().classList.contains("up2")) {
-        this.getElement().classList.replace("up2", "up")
+        this.getElement().classList.replace("up2", "up");
       }
       else {
         this.getElement().classList.add("up")
@@ -66,102 +66,102 @@ class Player extends Entity {
       case 83:
       ny = ny + 1;
       if (this.getElement().classList.contains("up")) {
-        this.getElement().classList.replace("up", "bottom2")
+        this.getElement().classList.replace("up", "bottom2");
       }
       else if (this.getElement().classList.contains("bottom")) {
-        this.getElement().classList.replace("bottom", "bottom2")
+        this.getElement().classList.replace("bottom", "bottom2");
       }
       else if (this.getElement().classList.contains("bottom2")) {
-        this.getElement().classList.replace("bottom2", "bottom")
+        this.getElement().classList.replace("bottom2", "bottom");
       }
       else if (this.getElement().classList.contains("left")) {
-        this.getElement().classList.replace("left", "bottom2")
+        this.getElement().classList.replace("left", "bottom2");
       }
       else if (this.getElement().classList.contains("left2")) {
-        this.getElement().classList.replace("left2", "bottom2")
+        this.getElement().classList.replace("left2", "bottom2");
       }
       else if (this.getElement().classList.contains("right")) {
-        this.getElement().classList.replace("right", "bottom2")
+        this.getElement().classList.replace("right", "bottom2");
       }
       else if (this.getElement().classList.contains("right2")) {
-        this.getElement().classList.replace("right2", "bottom2")
+        this.getElement().classList.replace("right2", "bottom2");
       }
       else if (this.getElement().classList.contains("still")) {
-        this.getElement().classList.replace("still", "bottom2")
+        this.getElement().classList.replace("still", "bottom2");
       }
       else if(this.getElement().classList.contains("up2")) {
-        this.getElement().classList.replace("up2", "bottom2")
+        this.getElement().classList.replace("up2", "bottom2");
       }
       else {
-        this.getElement().classList.add("bottom")
+        this.getElement().classList.add("bottom");
       }
       break;
 
       case 81:
       nx = nx - 1;
       if (this.getElement().classList.contains("up")) {
-        this.getElement().classList.replace("up", "left2")
+        this.getElement().classList.replace("up", "left2");
       }
       else if (this.getElement().classList.contains("bottom")) {
-        this.getElement().classList.replace("bottom", "left2")
+        this.getElement().classList.replace("bottom", "left2");
       }
       else if (this.getElement().classList.contains("bottom2")) {
-        this.getElement().classList.replace("bottom2", "left2")
+        this.getElement().classList.replace("bottom2", "left2");
       }
       else if (this.getElement().classList.contains("left")) {
-        this.getElement().classList.replace("left", "left2")
+        this.getElement().classList.replace("left", "left2");
       }
       else if (this.getElement().classList.contains("left2")) {
-        this.getElement().classList.replace("left2", "left")
+        this.getElement().classList.replace("left2", "left");
       }
       else if (this.getElement().classList.contains("right")) {
-        this.getElement().classList.replace("right", "left2")
+        this.getElement().classList.replace("right", "left2");
       }
       else if (this.getElement().classList.contains("right2")) {
-        this.getElement().classList.replace("right2", "left2")
+        this.getElement().classList.replace("right2", "left2");
       }
       else if (this.getElement().classList.contains("still")) {
-        this.getElement().classList.replace("still", "left2")
+        this.getElement().classList.replace("still", "left2");
       }
       else if(this.getElement().classList.contains("up2")) {
-        this.getElement().classList.replace("up2", "left2")
+        this.getElement().classList.replace("up2", "left2");
       }
       else {
-        this.getElement().classList.add("left")
+        this.getElement().classList.add("left");
       }
       break;
 
       case 68:
       nx = nx + 1;
       if (this.getElement().classList.contains("up")) {
-        this.getElement().classList.replace("up", "right2")
+        this.getElement().classList.replace("up", "right2");
       }
       else if (this.getElement().classList.contains("bottom")) {
-        this.getElement().classList.replace("bottom", "right2")
+        this.getElement().classList.replace("bottom", "right2");
       }
       else if (this.getElement().classList.contains("bottom2")) {
-        this.getElement().classList.replace("bottom2", "right2")
+        this.getElement().classList.replace("bottom2", "right2");
       }
       else if (this.getElement().classList.contains("left")) {
-        this.getElement().classList.replace("left", "right2")
+        this.getElement().classList.replace("left", "right2");
       }
       else if (this.getElement().classList.contains("left2")) {
-        this.getElement().classList.replace("left2", "right2")
+        this.getElement().classList.replace("left2", "right2");
       }
       else if (this.getElement().classList.contains("right")) {
-        this.getElement().classList.replace("right", "right2")
+        this.getElement().classList.replace("right", "right2");
       }
       else if (this.getElement().classList.contains("right2")) {
-        this.getElement().classList.replace("right2", "right")
+        this.getElement().classList.replace("right2", "right");
       }
       else if (this.getElement().classList.contains("still")) {
-        this.getElement().classList.replace("still", "right2")
+        this.getElement().classList.replace("still", "right2");
       }
       else if(this.getElement().classList.contains("up2")) {
-        this.getElement().classList.replace("up2", "right2")
+        this.getElement().classList.replace("up2", "right2");
       }
       else {
-        this.getElement().classList.add("right")
+        this.getElement().classList.add("right");
       }
       break;
 
