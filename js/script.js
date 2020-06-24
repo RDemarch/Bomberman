@@ -39,7 +39,6 @@ randomPowerUp = function () {
     return enumpowerups[1];
   }
 }
-
 gameOver = function() {
   setTimeout(function(){
     if(gameEnded) return;
