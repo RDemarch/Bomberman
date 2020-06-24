@@ -46,6 +46,11 @@ class Bomb extends Entity {
       if (ny > size) return true;
       let found = false;
       if (walls[nx][ny] instanceof Bomb) walls[nx][ny].explode();
+      if (walls[nx][ny] instanceof Fire) {
+        walls[nx][ny].remove();
+        walls[nx][ny] = null;
+        walls[nx][ny] = new Fire(nx, ny, this.thrower);
+      }
       if (walls[nx][ny] instanceof Wall) {
           if(walls[nx][ny].isBreakable())
             {
@@ -63,7 +68,7 @@ class Bomb extends Entity {
              return true;
            }
         }
-      new Fire(nx, ny, this.thrower);
+      walls[nx][ny] = new Fire(nx, ny, this.thrower);
       return found;
   }
   getThrower(){

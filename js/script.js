@@ -3,6 +3,7 @@ const box = document.getElementById("box");
 let player = new Player(0, 0);
 let gameEnded = false;
 let walls = [];
+let fire = [];
 let enumpowerups = [];
 let powerupList = [];
 let score = 0;

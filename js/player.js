@@ -181,7 +181,9 @@ class Player extends Entity {
     if (nx > size) return;
     if (ny > size) return;
 
-    if (walls[nx][ny] != null) return;
+    if (walls[nx][ny] != null) {
+    if (!(walls[nx][ny] instanceof Fire)) return;
+    }
 
     for (var i = 0; i < enemies.length; i++) {
       if (this.vulnerable) {
