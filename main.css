@@ -23,9 +23,38 @@
   position: absolute;
   width: 40px;
   height: 40px;
-  background-color: #ff4d4d;
   z-index: 100;
+  background-size: 40px 40px;
 }
+
+.up2 {
+  background-image: url("/javascript/images/token/upRight.png");
+}
+.up {
+  background-image: url("/javascript/images/token/upLeft.png");
+}
+.bottom2 {
+  background-image: url("/javascript/images/token/bottomRight.png");
+}
+.bottom {
+  background-image: url("/javascript/images/token/bottomLeft.png");
+}
+.left2 {
+  background-image: url("/javascript/images/token/LeftBottom.png");
+}
+.left {
+  background-image: url("/javascript/images/token/leftUp.png");
+}
+.right2 {
+  background-image: url("/javascript/images/token/rightBottom.png");
+}
+.right {
+  background-image: url("/javascript/images/token/rightUp.png");
+}
+.still {
+  background-image: url("/javascript/images/token/still.png");
+}
+
 .mur {
   position: absolute;
   top: 0px;
