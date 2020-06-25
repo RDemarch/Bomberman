@@ -2,6 +2,16 @@
   font-size: 20px;
 }
 
+#fire {
+  position: fixed;
+  top: -10px;
+  left: -10px;
+  background-image: url("/javascript/images/fire.png");
+  height: 0px;
+  width: 0px;
+  content: "";
+}
+
 #box {
   position: absolute;
   width: 760px;

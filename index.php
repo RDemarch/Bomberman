@@ -16,6 +16,8 @@
     <script type="text/javascript" src="/javascript/js/victory.js"></script>
   </head>
   <body>
+    <div id="feu">
+    </div>
     <div class="display">
       <div class="displayScore">
         <p>Score: <span id="score">0</span></p>
