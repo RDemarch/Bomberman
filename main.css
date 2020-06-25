@@ -29,6 +29,11 @@
   width: 40px;
   image-rendering: pixelated;
 }
+
+.still {
+  background-position: -10px -132.5px;
+}
+
 .up2 {
   background-position: -10px -7.5px;
 }
