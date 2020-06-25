@@ -7,7 +7,25 @@ let fire = [];
 let enumpowerups = [];
 let powerupList = [];
 let score = 0;
+let url = ["/javascript/images/token/upRight.png",
+           "/javascript/images/token/upLeft.png",
+           "/javascript/images/token/bottomRight.png",
+           "/javascript/images/token/bottomLeft.png",
+           "/javascript/images/token/leftBottom.png",
+           "/javascript/images/token/leftUp.png",
+           "/javascript/images/token/rightBottom.png",
+           "/javascript/images/token/rightUp.png",
+           "/javascript/images/token/still.png"];
 
+for(i = 0; i <= url.lenght; i++) {
+    preloadImage(i)
+  }
+
+function preloadImage(url)
+{
+    var img=new Image();
+    img.src=url;
+}
 piercingF = function() {
   player.piercing = true;
   setTimeout(function(){player.piercing = false}, 5000);
