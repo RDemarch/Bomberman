@@ -1,8 +1,7 @@
 class Player extends Entity {
   constructor(x, y){
     super(x, y);
-    this.getElement().id = "token";
-    this.getElement().classList.add("still")
+    this.getElement().classList.add("token");
     let that = this;
     this.time = Date.now();
     document.onkeydown = function(event){
