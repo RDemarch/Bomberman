@@ -22,13 +22,13 @@
   background-image: url("/javascript/images/bg.png");
   image-rendering: pixelated;
   background-size: 40px 40px;
+  z-index: 10;
 }
 #bottom {
   position: absolute;
   width: 840px;
   height: 840px;
   margin: auto;
-
 }
 .token {
   position: absolute;
@@ -78,31 +78,17 @@
   background-image: url("/javascript/images/log.png");
   image-rendering: pixelated;
   background-size: 40px 40px;
-  z-index: 15;
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.5);
+  z-index: 20;
 }
 .border {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 40px;
-  height: 40px;
   background-image: url("/javascript/images/stone_bricks.png");
   image-rendering: pixelated;
   background-size: 40px 40px;
-  z-index: 20;
+  z-index: 50;
 }
-.murCassable {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 40px;
-  height: 40px;
-  background-image: url("/javascript/images/cobblestone.png");
-  image-rendering: pixelated;
-  background-size: 40px 40px;
-  z-index: 10;
-}
-.mur:before {
+.border::before {
   background: transparent;
   content: "";
   position: absolute;
@@ -112,6 +98,17 @@
   right: 0;
   z-index: -1;
   box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+.murCassable {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 40px;
+  height: 40px;
+  background-image: url("/javascript/images/cobblestone.png");
+  image-rendering: pixelated;
+  background-size: 40px 40px;
 }
 .murCassable:before {
   background: transparent;

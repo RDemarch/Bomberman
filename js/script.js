@@ -68,37 +68,37 @@ for (let wx = 0; wx <= size; wx++) {
   }
 }
 
-let border = document.getElementById('bottom');
-let borderSize = size + 2;
-
-for (let i = 0; i <= borderSize; i++) {
-  let element = document.createElement("div");
-  let style = element.style;
-  style.left = String(i * 40) + 'px';
-  element.classList.add('border');
-  border.appendChild(element);
-
-  element = document.createElement("div");
-  style = element.style;
-  style.left = String(i * 40) + 'px';
-  style.top = String(borderSize * 40) + 'px';
-  element.classList.add('border');
-  border.appendChild(element);
-}
-for (let i = 1; i < borderSize; i++) {
-  let element = document.createElement("div");
-  let style = element.style;
-  style.top = String(i * 40) + 'px';
-  element.classList.add('border');
-  border.appendChild(element);
-
-  element = document.createElement("div");
-  style = element.style;
-  style.top = String(i * 40) + 'px';
-  style.left = String(borderSize * 40) + 'px';
-  element.classList.add('border');
-  border.appendChild(element);
-}
+// let border = document.getElementById('bottom');
+// let borderSize = size + 2;
+//
+// for (let i = 0; i <= borderSize; i++) {
+//   let element = document.createElement("div");
+//   let style = element.style;
+//   style.left = String(i * 40) + 'px';
+//   element.classList.add('border');
+//   border.appendChild(element);
+//
+//   element = document.createElement("div");
+//   style = element.style;
+//   style.left = String(i * 40) + 'px';
+//   style.top = String(borderSize * 40) + 'px';
+//   element.classList.add('border');
+//   border.appendChild(element);
+// }
+// for (let i = 1; i < borderSize; i++) {
+//   let element = document.createElement("div");
+//   let style = element.style;
+//   style.top = String(i * 40) + 'px';
+//   element.classList.add('border');
+//   border.appendChild(element);
+//
+//   element = document.createElement("div");
+//   style = element.style;
+//   style.top = String(i * 40) + 'px';
+//   style.left = String(borderSize * 40) + 'px';
+//   element.classList.add('border');
+//   border.appendChild(element);
+// }
 
 
 let compteur = 1;

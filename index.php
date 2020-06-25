@@ -46,7 +46,12 @@
       </div>
     </div>
     <div id="bottom">
+      <div class="object border" style="top: 0;left: 0;right: 0;height: 40px"></div>
+      <div class="object border" style="top: 40px;left: 0;bottom: 40px;width: 40px"></div>
+      <div class="object border" style="top: 40px;bottom: 40px;right: 0;width: 40px"></div>
+      <div class="object border" style="bottom: 0;left: 0;right: 0;height: 40px"></div>
       <div id="box">
+
       </div>
     </div>
     <script type="text/javascript" src="/javascript/js/script.js"></script>
