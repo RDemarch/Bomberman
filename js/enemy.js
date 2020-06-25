@@ -49,7 +49,13 @@ class Enemy extends Entity
 			if (nx > size) continue;
 			if (ny > size) continue;
 			if (walls[nx][ny] != null) {
-	    if (!(walls[nx][ny] instanceof Fire)) continue;
+	    	if (!(walls[nx][ny] instanceof Fire)) continue;
+	    	else if (walls[nx][ny] instanceof Fire) {
+					if (player.vulnerable) gameOver();
+					else {
+						continue;
+					}
+				}
 	    }
 
 			var found = false;
