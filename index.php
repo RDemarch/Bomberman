@@ -32,6 +32,16 @@
           <li>Space = Drop a bomb</li>
         </ul>
       </div>
+      <div class="powerUps">
+        <h1>Power Ups</h1>
+        <ul>
+          <li><img src="/javascript/images/backpack.png"> = More Bombs</li>
+          <li><img src="/javascript/images/gunpowder.png"> = More Power</li>
+          <li><img src="/javascript/images/arrow.png"> = Piercing Bombs</li>
+          <li><img src="/javascript/images/diamond_chestplate.png"> = Invincibility for 5s</li>
+          <li><img src="/javascript/images/slime_ball.png"> = Freezes Enemies for 5s</li>
+        </ul>
+      </div>
     </div>
     <div id="bottom">
       <div id="box">

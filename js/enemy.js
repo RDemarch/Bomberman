@@ -51,12 +51,16 @@ class Enemy extends Entity
 			if (walls[nx][ny] != null) {
 	    	if (!(walls[nx][ny] instanceof Fire)) continue;
 	    	else if (walls[nx][ny] instanceof Fire) {
-					if (player.vulnerable) gameOver();
-					else {
-						continue;
-					}
+					let event = new EnemiesDieEvent(enemies[i], this);
+	        document.dispatchEvent(event);
+	        if(event.defaultPrevented) continue;
+	        enemies[i].die();
+	        enemies.splice(i, 1);
+	        if (enemies.length == 0) {
+	          victoryF();
+	        }
 				}
-	    }
+			}
 
 			var found = false;
 			for (var i = 0; i < enemies.length; i++)

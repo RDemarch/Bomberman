@@ -182,7 +182,10 @@ class Player extends Entity {
     if (ny > size) return;
 
     if (walls[nx][ny] != null) {
-    if (!(walls[nx][ny] instanceof Fire)) return;
+      if (!(walls[nx][ny] instanceof Fire)) return;
+      else if (walls[nx][ny] instanceof Fire) {
+        if (player.vulnerable) gameOver();
+      }
     }
 
     for (var i = 0; i < enemies.length; i++) {

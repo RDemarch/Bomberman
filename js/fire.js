@@ -22,7 +22,7 @@ class Fire extends Entity {
       }
 
     var that = this;
-    setTimeout(function(){that.remove();}, 100);
+    setTimeout(function(){that.remove();   walls[that.getX()][that.getY()] = null;}, 100);
   }
   getThrower(){
     return this.thrower;
