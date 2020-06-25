@@ -54,8 +54,8 @@ class Enemy extends Entity
 					let event = new EnemiesDieEvent(enemies[i], this);
 	        document.dispatchEvent(event);
 	        if(event.defaultPrevented) continue;
-	        enemies[i].die();
-	        enemies.splice(i, 1);
+	        this.die();
+	        this.splice(i, 1);
 	        if (enemies.length == 0) {
 	          victoryF();
 	        }
