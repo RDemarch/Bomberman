@@ -4,8 +4,8 @@
 
 #feu {
   position: fixed;
-  top: -10px;
-  left: -10px;
+  top: -40px;
+  left: -40px;
   background-image: url("/javascript/images/fire.png");
   height: 40px;
   width: 40px;
