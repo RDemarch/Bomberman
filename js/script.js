@@ -11,11 +11,13 @@ let score = 0;
 piercingF = function() {
   player.piercing = true;
   setTimeout(function(){player.piercing = false}, 5000);
+  scoreAug(25);
 }
 
 invincibilityF = function() {
   player.vulnerable = false;
   setTimeout(function(){player.vulnerable = true}, 5000);
+  scoreAug(25);
 }
 
 enenmiesFreezeF = function() {
@@ -27,6 +29,7 @@ enenmiesFreezeF = function() {
       enemies[i].move = true;
     }
   }, 5000);
+  scoreAug(25);
 }
 randomPowerUp = function () {
   let randomPu = Math.round(Math.random() * 100);
@@ -67,39 +70,6 @@ for (let wx = 0; wx <= size; wx++) {
     }
   }
 }
-
-// let border = document.getElementById('bottom');
-// let borderSize = size + 2;
-//
-// for (let i = 0; i <= borderSize; i++) {
-//   let element = document.createElement("div");
-//   let style = element.style;
-//   style.left = String(i * 40) + 'px';
-//   element.classList.add('border');
-//   border.appendChild(element);
-//
-//   element = document.createElement("div");
-//   style = element.style;
-//   style.left = String(i * 40) + 'px';
-//   style.top = String(borderSize * 40) + 'px';
-//   element.classList.add('border');
-//   border.appendChild(element);
-// }
-// for (let i = 1; i < borderSize; i++) {
-//   let element = document.createElement("div");
-//   let style = element.style;
-//   style.top = String(i * 40) + 'px';
-//   element.classList.add('border');
-//   border.appendChild(element);
-//
-//   element = document.createElement("div");
-//   style = element.style;
-//   style.top = String(i * 40) + 'px';
-//   style.left = String(borderSize * 40) + 'px';
-//   element.classList.add('border');
-//   border.appendChild(element);
-// }
-
 
 let compteur = 1;
 
@@ -163,6 +133,10 @@ enumpowerups.push(new EnumPowerUp("bombUp", function (player) {
       player.maxBomb++;
       numBomb = player.maxBomb;
       document.getElementById("bombs").innerText = numBomb;
+      scoreAug(25);
+    }
+    else {
+      scoreAug(35);
     }
 }));
 
@@ -171,7 +145,11 @@ enumpowerups.push(new EnumPowerUp("powerUp", function (player) {
       player.power++;
       numPower = player.power;
       document.getElementById("power").innerText = numPower;
-  }
+      scoreAug(25);
+    }
+    else {
+      scoreAug(35);
+    }
 }));
 
 enumpowerups.push(new EnumPowerUp("piercingBomb", function(player){piercingF()}));
