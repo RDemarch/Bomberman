@@ -1,5 +1,7 @@
 const size = 18;
 const box = document.getElementById("box");
+const displayScore = document.getElementById("displayScore");
+var time = document.getElementById("time");
 let player = new Player(0, 0);
 let gameEnded = false;
 let walls = [];
@@ -8,6 +10,8 @@ let enumpowerups = [];
 let powerupList = [];
 let score = 0;
 let timeScore = 2000;
+let timeSecond = 0;
+let timeMinute = 0;
 
 piercingF = function() {
   player.piercing = true;
@@ -45,9 +49,30 @@ randomPowerUp = function () {
 }
 
 timeScoreF = function() {
-  if (timeScore > 250) {
-  timeScore -= 5;
-  }
+  if (gameEnded) return;
+
+    if (timeSecond <= 59) {
+      timeSecond++
+    }
+    else {
+      timeSecond = 0;
+      timeMinute++;
+    }
+    if (timeSecond < 10 && timeMinute < 10) {
+      time.innerText = "0" + timeMinute + ":0" + timeSecond;
+    }
+    else if (timeSecond < 10 && timeMinute >= 10) {
+      time.innerText = timeMinute + ":0" + timeSecond;
+    }
+    else if (timeSecond >= 10 && timeMinute < 10) {
+      time.innerText = "0" + timeMinute + ":" + timeSecond;
+    }
+    else {
+      time.innerText = timeMinute + ":" + timeSecond;
+    }
+    if (timeScore > 250) {
+    timeScore -= 5;
+    }
 }
 
 gameOver = function() {
@@ -129,6 +154,8 @@ while(count < 5)
 }
 
 setInterval(function(){ timeScoreF(); }, 1000);
+
+
 
 scoreAug = function(value) {
   if (player.dead) return;

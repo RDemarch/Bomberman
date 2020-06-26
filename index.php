@@ -19,7 +19,8 @@
     <div id="feu">
     </div>
     <div class="display">
-      <div class="displayScore">
+      <div id="displayScore">
+        <p>Time : <span id="time">00:00<span></p>
         <p>Score: <span id="score">0</span></p>
         <p>Power: <span id="power">1</span></p>
         <p>Number of Bombs: <span id="bombs">1</span></p>
