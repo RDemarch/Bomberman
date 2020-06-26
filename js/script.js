@@ -71,7 +71,7 @@ timeScoreF = function() {
       time.innerText = timeMinute + ":" + timeSecond;
     }
     if (timeScore > 250) {
-    timeScore -= 5;
+    timeScore -= 10;
     }
 }
 
