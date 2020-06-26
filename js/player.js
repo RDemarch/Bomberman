@@ -14,6 +14,7 @@ class Player extends Entity {
   dropBomb = function(){
     if(this.dead) return;
     if (this.maxBomb <= this.placedBomb) return;
+    if (walls[this.getX()][this.getY()] != null) return;
     var that = this;
     walls[this.getX()][this.getY()] = new Bomb(this.getX(), this.getY(), this, function(){that.placedBomb--;}, this.power, this.piercing);
     this.placedBomb++;
