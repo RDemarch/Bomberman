@@ -3,6 +3,7 @@ class Player extends Entity {
     super(x, y);
     this.getElement().classList.add("token");
     this.getElement().classList.add("still");
+    this.classList = this.getElement().className.split(' ');
     let that = this;
     this.time = Date.now();
     document.onkeydown = function(event){
@@ -26,142 +27,47 @@ class Player extends Entity {
     var event = event || window.event,
     keyCode = event.keyCode;
     let instant = Date.now();
+    let classList = this.getElement().className.split(' ');
     // On détecte l'événement puis selon la fleche, on ajoute le nombres de pixels désiré (ici 3) aux valeurs globales de position, x et y.
     if (instant >= this.time + 50) {
     switch (keyCode) {
       case 90:
       ny = ny - 1;
-      if (this.getElement().classList.contains("up")) {
-        this.getElement().classList.replace("up", "up2");
-      }
-      else if (this.getElement().classList.contains("bottom")) {
-        this.getElement().classList.replace("bottom", "up2");
-      }
-      else if (this.getElement().classList.contains("bottom2")) {
-        this.getElement().classList.replace("bottom2", "up2");
-      }
-      else if (this.getElement().classList.contains("left")) {
-        this.getElement().classList.replace("left", "up2");
-      }
-      else if (this.getElement().classList.contains("left2")) {
-        this.getElement().classList.replace("left2", "up2");
-      }
-      else if (this.getElement().classList.contains("right")) {
-        this.getElement().classList.replace("right", "up2");
-      }
-      else if (this.getElement().classList.contains("right2")) {
-        this.getElement().classList.replace("right2", "up2");
-      }
-      else if (this.getElement().classList.contains("still")) {
-        this.getElement().classList.replace("still", "up2");
-      }
-      else if(this.getElement().classList.contains("up2")) {
-        this.getElement().classList.replace("up2", "up");
+      if (classList[1] != "up2") {
+        this.getElement().classList.replace(classList[1], "up2");
       }
       else {
-        this.getElement().classList.add("up")
+        this.getElement().classList.replace(classList[1], "up");
       }
       break;
 
       case 83:
       ny = ny + 1;
-      if (this.getElement().classList.contains("up")) {
-        this.getElement().classList.replace("up", "bottom2");
-      }
-      else if (this.getElement().classList.contains("bottom")) {
-        this.getElement().classList.replace("bottom", "bottom2");
-      }
-      else if (this.getElement().classList.contains("bottom2")) {
-        this.getElement().classList.replace("bottom2", "bottom");
-      }
-      else if (this.getElement().classList.contains("left")) {
-        this.getElement().classList.replace("left", "bottom2");
-      }
-      else if (this.getElement().classList.contains("left2")) {
-        this.getElement().classList.replace("left2", "bottom2");
-      }
-      else if (this.getElement().classList.contains("right")) {
-        this.getElement().classList.replace("right", "bottom2");
-      }
-      else if (this.getElement().classList.contains("right2")) {
-        this.getElement().classList.replace("right2", "bottom2");
-      }
-      else if (this.getElement().classList.contains("still")) {
-        this.getElement().classList.replace("still", "bottom2");
-      }
-      else if(this.getElement().classList.contains("up2")) {
-        this.getElement().classList.replace("up2", "bottom2");
+      if (classList[1] != "bottom2") {
+        this.getElement().classList.replace(classList[1], "bottom2");
       }
       else {
-        this.getElement().classList.add("bottom");
+        this.getElement().classList.replace(classList[1], "bottom");
       }
       break;
 
       case 81:
       nx = nx - 1;
-      if (this.getElement().classList.contains("up")) {
-        this.getElement().classList.replace("up", "left2");
-      }
-      else if (this.getElement().classList.contains("bottom")) {
-        this.getElement().classList.replace("bottom", "left2");
-      }
-      else if (this.getElement().classList.contains("bottom2")) {
-        this.getElement().classList.replace("bottom2", "left2");
-      }
-      else if (this.getElement().classList.contains("left")) {
-        this.getElement().classList.replace("left", "left2");
-      }
-      else if (this.getElement().classList.contains("left2")) {
-        this.getElement().classList.replace("left2", "left");
-      }
-      else if (this.getElement().classList.contains("right")) {
-        this.getElement().classList.replace("right", "left2");
-      }
-      else if (this.getElement().classList.contains("right2")) {
-        this.getElement().classList.replace("right2", "left2");
-      }
-      else if (this.getElement().classList.contains("still")) {
-        this.getElement().classList.replace("still", "left2");
-      }
-      else if(this.getElement().classList.contains("up2")) {
-        this.getElement().classList.replace("up2", "left2");
+      if (classList[1] != "left2") {
+        this.getElement().classList.replace(classList[1], "left2");
       }
       else {
-        this.getElement().classList.add("left");
+        this.getElement().classList.replace(classList[1], "left");
       }
       break;
 
       case 68:
       nx = nx + 1;
-      if (this.getElement().classList.contains("up")) {
-        this.getElement().classList.replace("up", "right2");
-      }
-      else if (this.getElement().classList.contains("bottom")) {
-        this.getElement().classList.replace("bottom", "right2");
-      }
-      else if (this.getElement().classList.contains("bottom2")) {
-        this.getElement().classList.replace("bottom2", "right2");
-      }
-      else if (this.getElement().classList.contains("left")) {
-        this.getElement().classList.replace("left", "right2");
-      }
-      else if (this.getElement().classList.contains("left2")) {
-        this.getElement().classList.replace("left2", "right2");
-      }
-      else if (this.getElement().classList.contains("right")) {
-        this.getElement().classList.replace("right", "right2");
-      }
-      else if (this.getElement().classList.contains("right2")) {
-        this.getElement().classList.replace("right2", "right");
-      }
-      else if (this.getElement().classList.contains("still")) {
-        this.getElement().classList.replace("still", "right2");
-      }
-      else if(this.getElement().classList.contains("up2")) {
-        this.getElement().classList.replace("up2", "right2");
+      if (classList[1] != "right2") {
+        this.getElement().classList.replace(classList[1], "right2");
       }
       else {
-        this.getElement().classList.add("right");
+        this.getElement().classList.replace(classList[1], "right");
       }
       break;
 
