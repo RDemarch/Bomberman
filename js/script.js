@@ -7,6 +7,7 @@ let fire = [];
 let enumpowerups = [];
 let powerupList = [];
 let score = 0;
+let timeScore = 2000;
 
 piercingF = function() {
   player.piercing = true;
@@ -42,6 +43,13 @@ randomPowerUp = function () {
     return enumpowerups[1];
   }
 }
+
+timeScoreF = function() {
+  if (timeScore > 250) {
+  timeScore -= 5;
+  }
+}
+
 gameOver = function() {
   setTimeout(function(){
     if(gameEnded) return;
@@ -55,7 +63,7 @@ victoryF = function() {
   setTimeout(function(){
     if(gameEnded) return;
     gameEnded = true;
-    score += 500;
+    score += timeScore;
     console.log(score);
     new Victory(score);
   }, 100);
@@ -119,6 +127,9 @@ while(count < 5)
 	enemies.push(new Enemy(rex, rey));
 	count++;
 }
+
+setInterval(function(){ timeScoreF(); }, 1000);
+
 scoreAug = function(value) {
   if (player.dead) return;
   score += value

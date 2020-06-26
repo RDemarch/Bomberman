@@ -55,7 +55,7 @@ class Enemy extends Entity
 	        document.dispatchEvent(event);
 	        if(event.defaultPrevented) continue;
 	        this.die();
-	        this.splice(i, 1);
+	        enemies.splice(i, 1);
 	        if (enemies.length == 0) {
 	          victoryF();
 	        }

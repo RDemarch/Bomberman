@@ -232,7 +232,7 @@ body {
   background-size: 32px 32px;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/javascript/images/diamond_chestplate.pn");
+  background-image: url("/javascript/images/diamond_chestplate.png");
 }
 .enemiesFreeze {
   position: absolute;
