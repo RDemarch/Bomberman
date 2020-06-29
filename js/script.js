@@ -12,6 +12,7 @@ let score = 0;
 let timeScore = 2000;
 let timeSecond = 0;
 let timeMinute = 0;
+let timeDb = 0;
 
 piercingF = function() {
   player.piercing = true;
@@ -80,7 +81,6 @@ gameOver = function() {
     if(gameEnded) return;
     gameEnded = true;
     player.die();
-    console.log(score);
     new GameOver(score);
   }, 100);
 }
@@ -88,9 +88,10 @@ victoryF = function() {
   setTimeout(function(){
     if(gameEnded) return;
     gameEnded = true;
+    timeDb = (timeMinute * 60) + timeSecond;
+    console.log(timeDb);
     score += timeScore;
-    console.log(score);
-    new Victory(score);
+    new Victory(score, timeDb);
   }, 100);
 }
 
@@ -154,8 +155,6 @@ while(count < 5)
 }
 
 setInterval(function(){ timeScoreF(); }, 1000);
-
-
 
 scoreAug = function(value) {
   if (player.dead) return;

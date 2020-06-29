@@ -1,6 +1,12 @@
 :root {
   font-size: 20px;
 }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:  #aaff80;
+}
 
 #feu {
   position: fixed;
@@ -18,17 +24,17 @@
   height: 760px;
   top: 40px;
   left: 40px;
-  margin: auto;
+  margin: 0;
   background-image: url("/javascript/images/bg.png");
   image-rendering: pixelated;
   background-size: 40px 40px;
   z-index: 10;
 }
 #bottom {
-  position: absolute;
+  position: relative;
   width: 840px;
   height: 840px;
-  margin: auto;
+  margin: 0;
 }
 .token {
   position: absolute;
@@ -192,19 +198,15 @@
   margin: 0;
   color: rgb(255, 255, 102);
 }
-body {
-  display: flex;
-  justify-content: center;
-  background-color:  #aaff80;
-}
+
 .bombUp {
   position: absolute;
   width: 40px;
   height: 40px;
-  background-size: 24px 24px;
+  background-size: 32px 32px;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/javascript/images/backpack.png");
+  background-image: url("/javascript/images/tnt.gif");
 }
 .powerUp {
   position: absolute;
@@ -243,9 +245,6 @@ body {
   background-image: url("/javascript/images/slime_ball.png");
 }
 .display {
-  position: fixed;
-  top: 50px;
-  left: 150px;
   display: flex;
   width: 300px;
   height: auto;

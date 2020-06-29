@@ -38,7 +38,7 @@
       <div class="powerUps">
         <h1>Power Ups</h1>
         <ul>
-          <li><img src="/javascript/images/backpack.png"> = More Bombs</li>
+          <li><img src="/javascript/images/tnt.gif" style="height: 32px;"> = More Bombs</li>
           <li><img src="/javascript/images/gunpowder.png"> = More Power</li>
           <li><img src="/javascript/images/arrow.png"> = Piercing Bombs</li>
           <li><img src="/javascript/images/diamond_chestplate.png"> = Invincibility for 5s</li>
@@ -55,6 +55,53 @@
 
       </div>
     </div>
+    <table>
+      <thead>
+        <th>Pseudo</th>
+        <th>Score</th>
+        <th>Temps</th>
+      </thead>
+      <tbody>
+    <?php
+    try
+    {
+    	// On se connecte à MySQL
+    	$bdd = new PDO('mysql:host=localhost;dbname=robin;charset=utf8', 'robin', 'robin', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    }
+    catch(Exception $e)
+    {
+    	// En cas d'erreur, on affiche un message et on arrête tout
+            die('Erreur : '.$e->getMessage());
+    }
+
+    // Si tout va bien, on peut continuer
+
+    // On récupère tout le contenu de la table jeux_video
+    $reponse = $bdd->query('SELECT * FROM leaderboard ORDER BY score DESC');
+
+    // On affiche chaque entrée une à une
+    while ($donnees = $reponse->fetch())
+    {
+      $timeMinute = floor($donnees['timePlayer'] / 60);
+      $timeSecond = $donnees['timePlayer'] % 60;
+      if ($timeMinute < 10) {
+        $timeMinute = "0". $timeMinute;
+      }
+      if ($timeSecond < 10) {
+        $timeSecond = "0". $timeSecond;
+      }
+    ?>
+        <tr><td><?php echo htmlspecialchars($donnees['pseudo']);?></td>
+        <td><?php echo htmlspecialchars($donnees['score']);?></td>
+        <td><?php echo htmlspecialchars($timeMinute . ":" . $timeSecond);?></td></tr>
+    <?php
+    }
+
+    $reponse->closeCursor(); // Termine le traitement de la requête
+
+    ?>
+    </tbody>
+  </table>
     <script type="text/javascript" src="/javascript/js/script.js"></script>
   </body>
 </html>
