@@ -4,6 +4,8 @@ class Enemy extends Entity
 	{
 		super(x, y);
 		this.getElement().classList.add("enemies");
+		this.getElement().classList.add("bottomStill");
+		this.classList = this.getElement().className.split(' ');
 		this.launchMove();
 		this.dead = false, this.move = true;
 	}
@@ -23,22 +25,51 @@ class Enemy extends Entity
 
 			var nx = this.getX();
 			var ny = this.getY();
+			let classList = this.getElement().className.split(' ');
 
 			if (this.move) {
 				switch (Math.floor(Math.random() * 4))
 				{
 					case 0:
 					nx--;
+					if (classList[1] != "left2") {
+		        this.getElement().classList.replace(classList[1], "left2");
+		      }
+		      else {
+		        this.getElement().classList.replace(classList[1], "left");
+		      }
 					break;
+
 					case 1:
 					nx++;
+					if (classList[1] != "right2") {
+		        this.getElement().classList.replace(classList[1], "right2");
+		      }
+		      else {
+		        this.getElement().classList.replace(classList[1], "right");
+		      }
 					break;
+
 					case 2:
 					ny--;
+					if (classList[1] != "up2") {
+		        this.getElement().classList.replace(classList[1], "up2");
+		      }
+		      else {
+		        this.getElement().classList.replace(classList[1], "up");
+		      }
 					break;
+
 					case 3:
 					ny++;
+					if (classList[1] != "bottom2") {
+		        this.getElement().classList.replace(classList[1], "bottom2");
+		      }
+		      else {
+		        this.getElement().classList.replace(classList[1], "bottom");
+		      }
 					break;
+
 					default:
 					continue;
 				}

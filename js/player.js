@@ -2,7 +2,7 @@ class Player extends Entity {
   constructor(x, y){
     super(x, y);
     this.getElement().classList.add("token");
-    this.getElement().classList.add("still");
+    this.getElement().classList.add("bottomStill");
     this.classList = this.getElement().className.split(' ');
     let that = this;
     this.time = Date.now();

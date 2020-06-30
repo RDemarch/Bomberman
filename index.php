@@ -38,9 +38,9 @@
       <div class="powerUps">
         <h1>Power Ups</h1>
         <ul>
-          <li><img src="/javascript/images/tnt.gif" style="height: 32px;"> = More Bombs</li>
-          <li><img src="/javascript/images/gunpowder.gif" style="height: 32px;"> = More Power</li>
-          <li><img src="/javascript/images/arrow.png"> = Piercing Bombs</li>
+          <li><img src="/javascript/images/tnt.gif" style="height: 40px;"> = More Bombs</li>
+          <li><img src="/javascript/images/gunpowder.gif" style="height: 40px;"> = More Power</li>
+          <li><img src="/javascript/images/arrow.gif" style="height: 40px;"> = Piercing Bombs</li>
           <li><img src="/javascript/images/diamond_chestplate.png"> = Invincibility for 5s</li>
           <li><img src="/javascript/images/slime_ball.png"> = Freezes Enemies for 5s</li>
         </ul>

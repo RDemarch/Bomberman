@@ -38,40 +38,49 @@ body {
 }
 .token {
   position: absolute;
-  background: url("/javascript/images/token/token.png");
-  background-size: 250px;
+  background: url("/javascript/images/token/steve.png");
+  background-size: 160px;
   z-index: 15;
   height: 40px;
   width: 40px;
   image-rendering: pixelated;
 }
 
-.still {
-  background-position: -10px -132.5px;
+.upStill {
+  background-position: left bottom;
 }
 .up2 {
-  background-position: -10px -7.5px;
+  background-position: left center;
 }
 .up {
-  background-position: -10px -70px;
+  background-position: left top;
+}
+.bottomStill {
+  background-position: 80px bottom;
 }
 .bottom2 {
-  background-position: 112.5px -7.5px;
+  background-position: 80px top;
 }
 .bottom {
-  background-position: 112.5px -70px;
+  background-position: 80px center;
+}
+.leftStill {
+  background-position: right bottom;
 }
 .left2 {
-  background-position: 52.5px -7.5px;
+  background-position: right top;
 }
 .left {
-  background-position: 52.5px -70px;
+  background-position: right center;
+}
+.rightStill {
+  background-position: -40px bottom;
 }
 .right2 {
-  background-position: -72.5px -7.5px;
+  background-position: -40px top;
 }
 .right {
-  background-position: -72.5px -70px;
+  background-position: -40px center;
 }
 
 .mur {
@@ -160,8 +169,8 @@ body {
   position: absolute;
   width: 40px;
   height: 40px;
-  background-color: blue;
-  background-size: 40px 40px;
+  background-image: url("/javascript/images/enemy/creeper.png");
+  background-size: 160px;
 }
 .gameOver {
   display: flex;
@@ -224,7 +233,7 @@ body {
   background-size: 32px 32px;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/javascript/images/arrow.png");
+  background-image: url("/javascript/images/arrow.gif");
 }
 .invincibility {
   position: absolute;
