@@ -242,7 +242,7 @@ body {
   background-size: 32px 32px;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/javascript/images/diamond_chestplate.png");
+  background-image: url("/javascript/images/diamond_chestplate.gif");
 }
 .enemiesFreeze {
   position: absolute;
@@ -251,7 +251,7 @@ body {
   background-size: 32px 32px;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/javascript/images/slime_ball.png");
+  background-image: url("/javascript/images/slimeball.gif");
 }
 .display {
   display: flex;
