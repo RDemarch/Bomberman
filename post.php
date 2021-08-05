@@ -2,7 +2,7 @@
 try
 {
 	// On se connecte à MySQL
-	$bdd = new PDO('mysql:host=localhost;dbname=robin;charset=utf8', 'robin', 'robin', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+	$bdd = new PDO('mysql:host=localhost;port=3306;dbname=robin;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 }
 catch(Exception $e)
 {

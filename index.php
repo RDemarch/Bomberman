@@ -4,16 +4,16 @@
     <meta charset="utf-8">
     <title>Test Java</title>
     <link rel="stylesheet" type="text/css" href="main.css">
-    <script type="text/javascript" src="/javascript/js/entity.js"></script>
-    <script type="text/javascript" src="/javascript/js/wall.js"></script>
-    <script type="text/javascript" src="/javascript/js/player.js"></script>
-    <script type="text/javascript" src="/javascript/js/bomb.js"></script>
-    <script type="text/javascript" src="/javascript/js/fire.js"></script>
-    <script type="text/javascript" src="/javascript/js/wallBreakEvent.js"></script>
-    <script type="text/javascript" src="/javascript/js/powerup.js"></script>
-    <script type="text/javascript" src="/javascript/js/enemy.js"></script>
-    <script type="text/javascript" src="/javascript/js/gameover.js"></script>
-    <script type="text/javascript" src="/javascript/js/victory.js"></script>
+    <script type="text/javascript" src="/bomberman/js/entity.js"></script>
+    <script type="text/javascript" src="/bomberman/js/wall.js"></script>
+    <script type="text/javascript" src="/bomberman/js/player.js"></script>
+    <script type="text/javascript" src="/bomberman/js/bomb.js"></script>
+    <script type="text/javascript" src="/bomberman/js/fire.js"></script>
+    <script type="text/javascript" src="/bomberman/js/wallBreakEvent.js"></script>
+    <script type="text/javascript" src="/bomberman/js/powerup.js"></script>
+    <script type="text/javascript" src="/bomberman/js/enemy.js"></script>
+    <script type="text/javascript" src="/bomberman/js/gameover.js"></script>
+    <script type="text/javascript" src="/bomberman/js/victory.js"></script>
   </head>
   <body>
     <div id="feu">
@@ -66,7 +66,7 @@
     try
     {
     	// On se connecte à MySQL
-    	$bdd = new PDO('mysql:host=localhost;dbname=robin;charset=utf8', 'robin', 'robin', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    	$bdd = new PDO('mysql:host=localhost;port=3307;dbname=robin;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
     catch(Exception $e)
     {
@@ -102,6 +102,6 @@
     ?>
     </tbody>
   </table>
-    <script type="text/javascript" src="/javascript/js/script.js"></script>
+    <script type="text/javascript" src="/bomberman/js/script.js"></script>
   </body>
 </html>
