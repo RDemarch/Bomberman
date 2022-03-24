@@ -12,7 +12,16 @@ body {
   position: fixed;
   top: -40px;
   left: -40px;
-  background-image: url("/javascript/images/fire.png");
+  background-image: url("/bomberman/Bomberman/images/fire.png");
+  height: 40px;
+  width: 40px;
+  content: "";
+}
+#feu {
+  position: fixed;
+  top: -40px;
+  left: -40px;
+  background-image: url("/bomberman/Bomberman/images/tnt.png");
   height: 40px;
   width: 40px;
   content: "";
@@ -25,7 +34,7 @@ body {
   top: 40px;
   left: 40px;
   margin: 0;
-  background-image: url("/javascript/images/bg.png");
+  background-image: url("/bomberman/Bomberman/images/bg.png");
   image-rendering: pixelated;
   background-size: 40px 40px;
   z-index: 10;
@@ -38,7 +47,7 @@ body {
 }
 .token {
   position: absolute;
-  background: url("/javascript/images/token/steve.png");
+  background: url("/bomberman/Bomberman/images/token/steve.png");
   background-size: 160px;
   z-index: 15;
   height: 40px;
@@ -89,7 +98,7 @@ body {
   left: 0px;
   width: 40px;
   height: 40px;
-  background-image: url("/javascript/images/log.png");
+  background-image: url("/bomberman/Bomberman/images/log.png");
   image-rendering: pixelated;
   background-size: 40px 40px;
   box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.5);
@@ -97,7 +106,7 @@ body {
 }
 .border {
   position: absolute;
-  background-image: url("/javascript/images/stone_bricks.png");
+  background-image: url("/bomberman/Bomberman/images/stone_bricks.png");
   image-rendering: pixelated;
   background-size: 40px 40px;
   z-index: 50;
@@ -120,7 +129,7 @@ body {
   left: 0px;
   width: 40px;
   height: 40px;
-  background-image: url("/javascript/images/cobblestone.png");
+  background-image: url("/bomberman/Bomberman/images/cobblestone.png");
   image-rendering: pixelated;
   background-size: 40px 40px;
 }
@@ -139,8 +148,8 @@ body {
   position: absolute;
   width: 40px;
   height: 40px;
-  background-image: url("/javascript/images/tnt.png");
   image-rendering: pixelated;
+  background-image: url("/bomberman/Bomberman/images/tnt.png");
   background-size: 40px 40px;
   z-index: 1;
 }
@@ -161,7 +170,7 @@ body {
   height: 40px;
   background-size: 40px;
   image-rendering: pixelated;
-  background-image: url("/javascript/images/fire.png");
+  background-image: url("/bomberman/Bomberman/images/fire.png");
   animation: 1.5s step-end infinite scrollFireSprite;
   z-index: 20;
 }
@@ -169,7 +178,7 @@ body {
   position: absolute;
   width: 40px;
   height: 40px;
-  background-image: url("/javascript/images/enemy/creeper.png");
+  background-image: url("/bomberman/Bomberman/images/enemy/creeper.png");
   background-size: 160px;
 }
 .gameOver {
@@ -215,7 +224,7 @@ body {
   background-size: 32px 32px;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/javascript/images/tnt.gif");
+  background-image: url("/bomberman/Bomberman/images/tnt.gif");
 }
 .powerUp {
   position: absolute;
@@ -224,7 +233,7 @@ body {
   background-size: 32px 32px;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/javascript/images/gunpowder.gif");
+  background-image: url("/bomberman/Bomberman/images/gunpowder.gif");
 }
 .piercingBomb {
   position: absolute;
@@ -233,7 +242,7 @@ body {
   background-size: 32px 32px;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/javascript/images/arrow.gif");
+  background-image: url("/bomberman/Bomberman/images/arrow.gif");
 }
 .invincibility {
   position: absolute;
@@ -242,7 +251,7 @@ body {
   background-size: 32px 32px;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/javascript/images/diamond_chestplate.gif");
+  background-image: url("/bomberman/Bomberman/images/diamond_chestplate.gif");
 }
 .enemiesFreeze {
   position: absolute;
@@ -251,7 +260,7 @@ body {
   background-size: 32px 32px;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/javascript/images/slimeball.gif");
+  background-image: url("/bomberman/Bomberman/images/slimeball.gif");
 }
 .display {
   display: flex;

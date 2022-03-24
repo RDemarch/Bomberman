@@ -29,7 +29,7 @@ class Player extends Entity {
     keyCode = event.keyCode;
     let instant = Date.now();
     let classList = this.getElement().className.split(' ');
-    // On détecte l'événement puis selon la fleche, on ajoute le nombres de pixels désiré (ici 3) aux valeurs globales de position, x et y.
+
     if (instant >= this.time + 50) {
     switch (keyCode) {
       case 90:

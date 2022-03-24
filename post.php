@@ -2,7 +2,7 @@
 try
 {
 	// On se connecte à MySQL
-	$bdd = new PDO('mysql:host=localhost;dbname=robin;charset=utf8', 'robin', 'robin', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+	$bdd = new PDO('mysql:host=localhost;dbname=robind_;charset=utf8', 'robind', 'gH3MyItHwXD/gQ==', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 }
 catch(Exception $e)
 {
@@ -14,7 +14,7 @@ $pseudo = $_POST['pseudo'];
 $score = $_POST['score'];
 $timePlayer = $_POST['timeDb'];
 
-$requete = $bdd->prepare('INSERT INTO leaderboard(pseudo, score, timePlayer) VALUES(:pseudo, :score, :timePlayer)');
+$requete = $bdd->prepare('INSERT INTO leaderboard(name, score, timePlayer) VALUES(:pseudo, :score, :timePlayer)');
 $requete->execute(array(
           'pseudo' => $pseudo,
           'score' => $score,

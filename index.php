@@ -2,21 +2,23 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Test Java</title>
+    <title>Bomberman</title>
     <link rel="stylesheet" type="text/css" href="main.css">
-    <script type="text/javascript" src="/javascript/js/entity.js"></script>
-    <script type="text/javascript" src="/javascript/js/wall.js"></script>
-    <script type="text/javascript" src="/javascript/js/player.js"></script>
-    <script type="text/javascript" src="/javascript/js/bomb.js"></script>
-    <script type="text/javascript" src="/javascript/js/fire.js"></script>
-    <script type="text/javascript" src="/javascript/js/wallBreakEvent.js"></script>
-    <script type="text/javascript" src="/javascript/js/powerup.js"></script>
-    <script type="text/javascript" src="/javascript/js/enemy.js"></script>
-    <script type="text/javascript" src="/javascript/js/gameover.js"></script>
-    <script type="text/javascript" src="/javascript/js/victory.js"></script>
+    <script type="text/javascript" src="/bomberman/Bomberman/js/entity.js"></script>
+    <script type="text/javascript" src="/bomberman/Bomberman/js/wall.js"></script>
+    <script type="text/javascript" src="/bomberman/Bomberman/js/player.js"></script>
+    <script type="text/javascript" src="/bomberman/Bomberman/js/bomb.js"></script>
+    <script type="text/javascript" src="/bomberman/Bomberman/js/fire.js"></script>
+    <script type="text/javascript" src="/bomberman/Bomberman/js/wallBreakEvent.js"></script>
+    <script type="text/javascript" src="/bomberman/Bomberman/js/powerup.js"></script>
+    <script type="text/javascript" src="/bomberman/Bomberman/js/enemy.js"></script>
+    <script type="text/javascript" src="/bomberman/Bomberman/js/gameover.js"></script>
+    <script type="text/javascript" src="/bomberman/Bomberman/js/victory.js"></script>
   </head>
   <body>
     <div id="feu">
+    </div>
+    <div id="bomb">
     </div>
     <div class="display">
       <div id="displayScore">
@@ -38,11 +40,11 @@
       <div class="powerUps">
         <h1>Power Ups</h1>
         <ul>
-          <li><img src="/javascript/images/tnt.gif" style="height: 40px;"> = More Bombs</li>
-          <li><img src="/javascript/images/gunpowder.gif" style="height: 40px;"> = More Power</li>
-          <li><img src="/javascript/images/arrow.gif" style="height: 40px;"> = Piercing Bombs</li>
-          <li><img src="/javascript/images/diamond_chestplate.gif" style="height: 40px;"> = Invincibility for 5s</li>
-          <li><img src="/javascript/images/slimeball.gif" style="height: 40px;"> = Freezes Enemies for 5s</li>
+          <li><img src="/bomberman/Bomberman/images/tnt.gif" style="height: 40px;"> = More Bombs</li>
+          <li><img src="/bomberman/Bomberman/images/gunpowder.gif" style="height: 40px;"> = More Power</li>
+          <li><img src="/bomberman/Bomberman/images/arrow.gif" style="height: 40px;"> = Piercing Bombs</li>
+          <li><img src="/bomberman/Bomberman/images/diamond_chestplate.gif" style="height: 40px;"> = Invincibility for 5s</li>
+          <li><img src="/bomberman/Bomberman/images/slimeball.gif" style="height: 40px;"> = Freezes Enemies for 5s</li>
         </ul>
       </div>
     </div>
@@ -66,7 +68,7 @@
     try
     {
     	// On se connecte à MySQL
-    	$bdd = new PDO('mysql:host=localhost;dbname=robin;charset=utf8', 'robin', 'robin', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    	$bdd = new PDO('mysql:host=localhost;dbname=robind_;charset=utf8;', 'robind', 'gH3MyItHwXD/gQ==', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
     catch(Exception $e)
     {
@@ -91,7 +93,7 @@
         $timeSecond = "0". $timeSecond;
       }
     ?>
-        <tr><td><?php echo htmlspecialchars($donnees['pseudo']);?></td>
+        <tr><td><?php echo htmlspecialchars($donnees['name']);?></td>
         <td><?php echo htmlspecialchars($donnees['score']);?></td>
         <td><?php echo htmlspecialchars($timeMinute . ":" . $timeSecond);?></td></tr>
     <?php
@@ -102,6 +104,6 @@
     ?>
     </tbody>
   </table>
-    <script type="text/javascript" src="/javascript/js/script.js"></script>
+    <script type="text/javascript" src="/bomberman/Bomberman/js/script.js"></script>
   </body>
 </html>
