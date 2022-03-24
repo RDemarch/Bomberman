@@ -1,13 +1,19 @@
 <?php
+
+$dbHost = "";// Entrer le nom de votre bse de données
+$dbName = "";// Entrer le nom de votre bse de données
+$dbPort = "";// Entrer le de portvotre bse de données
+$dbUser = "";// Entrer l'utilisateur de votre bse de données
+$dbUserPsw = "";// Entrer le mot de passe de l'utilisateur de votre base de données
 try
 {
 	// On se connecte à MySQL
-	$bdd = new PDO('mysql:host=localhost;port=3306;dbname=robin;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+	$bdd = new PDO('mysql:host=' . $dbHost . ';port=' . $dbPort . ';dbname=' . $dbName . ';charset=utf8', $dbUser, $dbUserPsw, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 }
 catch(Exception $e)
 {
-	// En cas d'erreur, on affiche un message et on arrête tout
-        die('Erreur : '.$e->getMessage());
+	// En cas d'erreur, on affiche un message
+				echo 'Erreur : '.$e->getMessage();
 }
 
 $pseudo = $_POST['pseudo'];

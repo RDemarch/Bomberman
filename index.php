@@ -65,42 +65,46 @@
       </thead>
       <tbody>
     <?php
+    $dbHost = "";// Entrer le nom de votre bse de données
+    $dbName = "";// Entrer le nom de votre bse de données
+    $dbPort = "";// Entrer le de portvotre bse de données
+    $dbUser = "";// Entrer l'utilisateur de votre bse de données
+    $dbUserPsw = "";// Entrer le mot de passe de l'utilisateur de votre base de données
     try
     {
     	// On se connecte à MySQL
-    	$bdd = new PDO('mysql:host=localhost;port=3307;dbname=robin;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    	$bdd = new PDO('mysql:host=' . $dbHost . ';port=' . $dbPort . ';dbname=' . $dbName . ';charset=utf8', $dbUser, $dbUserPsw, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
     catch(Exception $e)
     {
-    	// En cas d'erreur, on affiche un message et on arrête tout
-            die('Erreur : '.$e->getMessage());
+    	// En cas d'erreur, on affiche un message
+            echo 'Erreur : '.$e->getMessage();
     }
 
     // Si tout va bien, on peut continuer
+    if (isset($bdd)) {
+      $reponse = $bdd->query('SELECT * FROM leaderboard ORDER BY score DESC');
 
-    // On récupère tout le contenu de la table jeux_video
-    $reponse = $bdd->query('SELECT * FROM leaderboard ORDER BY score DESC');
+      // On affiche chaque entrée une à une
+      while ($donnees = $reponse->fetch())
+      {
+        $timeMinute = floor($donnees['timePlayer'] / 60);
+        $timeSecond = $donnees['timePlayer'] % 60;
+        if ($timeMinute < 10) {
+          $timeMinute = "0". $timeMinute;
+        }
+        if ($timeSecond < 10) {
+          $timeSecond = "0". $timeSecond;
+        }
+      ?>
+          <tr><td><?php echo htmlspecialchars($donnees['pseudo']);?></td>
+          <td><?php echo htmlspecialchars($donnees['score']);?></td>
+          <td><?php echo htmlspecialchars($timeMinute . ":" . $timeSecond);?></td></tr>
+      <?php
+      }
 
-    // On affiche chaque entrée une à une
-    while ($donnees = $reponse->fetch())
-    {
-      $timeMinute = floor($donnees['timePlayer'] / 60);
-      $timeSecond = $donnees['timePlayer'] % 60;
-      if ($timeMinute < 10) {
-        $timeMinute = "0". $timeMinute;
-      }
-      if ($timeSecond < 10) {
-        $timeSecond = "0". $timeSecond;
-      }
-    ?>
-        <tr><td><?php echo htmlspecialchars($donnees['name']);?></td>
-        <td><?php echo htmlspecialchars($donnees['score']);?></td>
-        <td><?php echo htmlspecialchars($timeMinute . ":" . $timeSecond);?></td></tr>
-    <?php
+      $reponse->closeCursor(); // Termine le traitement de la requête
     }
-
-    $reponse->closeCursor(); // Termine le traitement de la requête
-
     ?>
     </tbody>
   </table>
