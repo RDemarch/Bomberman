@@ -4,16 +4,16 @@
     <meta charset="utf-8">
     <title>Bomberman</title>
     <link rel="stylesheet" type="text/css" href="main.css">
-    <script type="text/javascript" src="/bomberman/Bomberman/js/entity.js"></script>
-    <script type="text/javascript" src="/bomberman/Bomberman/js/wall.js"></script>
-    <script type="text/javascript" src="/bomberman/Bomberman/js/player.js"></script>
-    <script type="text/javascript" src="/bomberman/Bomberman/js/bomb.js"></script>
-    <script type="text/javascript" src="/bomberman/Bomberman/js/fire.js"></script>
-    <script type="text/javascript" src="/bomberman/Bomberman/js/wallBreakEvent.js"></script>
-    <script type="text/javascript" src="/bomberman/Bomberman/js/powerup.js"></script>
-    <script type="text/javascript" src="/bomberman/Bomberman/js/enemy.js"></script>
-    <script type="text/javascript" src="/bomberman/Bomberman/js/gameover.js"></script>
-    <script type="text/javascript" src="/bomberman/Bomberman/js/victory.js"></script>
+    <script type="text/javascript" src="../Bomberman/js/entity.js"></script>
+    <script type="text/javascript" src="../Bomberman/js/wall.js"></script>
+    <script type="text/javascript" src="../Bomberman/js/player.js"></script>
+    <script type="text/javascript" src="../Bomberman/js/bomb.js"></script>
+    <script type="text/javascript" src="../Bomberman/js/fire.js"></script>
+    <script type="text/javascript" src="../Bomberman/js/wallBreakEvent.js"></script>
+    <script type="text/javascript" src="../Bomberman/js/powerup.js"></script>
+    <script type="text/javascript" src="../Bomberman/js/enemy.js"></script>
+    <script type="text/javascript" src="../Bomberman/js/gameover.js"></script>
+    <script type="text/javascript" src="../Bomberman/js/victory.js"></script>
   </head>
   <body>
     <div id="feu">
@@ -40,11 +40,11 @@
       <div class="powerUps">
         <h1>Power Ups</h1>
         <ul>
-          <li><img src="/bomberman/Bomberman/images/tnt.gif" style="height: 40px;"> = More Bombs</li>
-          <li><img src="/bomberman/Bomberman/images/gunpowder.gif" style="height: 40px;"> = More Power</li>
-          <li><img src="/bomberman/Bomberman/images/arrow.gif" style="height: 40px;"> = Piercing Bombs</li>
-          <li><img src="/bomberman/Bomberman/images/diamond_chestplate.gif" style="height: 40px;"> = Invincibility for 5s</li>
-          <li><img src="/bomberman/Bomberman/images/slimeball.gif" style="height: 40px;"> = Freezes Enemies for 5s</li>
+          <li><img src="../Bomberman/images/tnt.gif" style="height: 40px;"> = More Bombs</li>
+          <li><img src="../Bomberman/images/gunpowder.gif" style="height: 40px;"> = More Power</li>
+          <li><img src="../Bomberman/images/arrow.gif" style="height: 40px;"> = Piercing Bombs</li>
+          <li><img src="../Bomberman/images/diamond_chestplate.gif" style="height: 40px;"> = Invincibility for 5s</li>
+          <li><img src="../Bomberman/images/slimeball.gif" style="height: 40px;"> = Freezes Enemies for 5s</li>
         </ul>
       </div>
     </div>
@@ -68,7 +68,7 @@
     try
     {
     	// On se connecte à MySQL
-    	$bdd = new PDO('mysql:host=localhost;dbname=robind_;charset=utf8;', 'robind', 'gH3MyItHwXD/gQ==', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    	$bdd = new PDO('mysql:host=localhost;port=3307;dbname=robin;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
     catch(Exception $e)
     {
@@ -104,6 +104,6 @@
     ?>
     </tbody>
   </table>
-    <script type="text/javascript" src="/bomberman/Bomberman/js/script.js"></script>
+    <script type="text/javascript" src="../Bomberman/js/script.js"></script>
   </body>
 </html>
